@@ -16,6 +16,7 @@ Template.newpara.events({
       'page': pageName,
       'content': ["Click on this paragraph to make it yours."]
     })
+    // XXX would be good to make that paragraph be selected right away.
   }
 })
 
