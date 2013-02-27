@@ -18,7 +18,7 @@ Template.newpara.events({
     })
     Session.set("editing_para", p);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
-    activateInput($("#para-textarea"));
+    activateInput($("#para-textarea")); // XXX hacky - assumes only one such thing in page.
   }
 })
 
