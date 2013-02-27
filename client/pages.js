@@ -17,6 +17,7 @@ Template.newpara.events({
       'content': ["Click on this paragraph to make it yours."]
     })
     console.log(p);
+    Session.set("editing_para", p._id);
     // XXX would be good to make that paragraph be selected right away.
   }
 })
