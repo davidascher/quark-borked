@@ -19,7 +19,6 @@ Template.newpara.events({
     Session.set("editing_para", p);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput($("#para-textarea"));
-    // XXX would be good to make that paragraph be selected right away.
   }
 })
 
