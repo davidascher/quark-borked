@@ -1,0 +1,107 @@
+<head>
+  <title>Playing w/ meteor and fedwiki</title>
+  <link rel='stylesheet' type='text/css' href='/app.css'>
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="right">
+      <button class="btn btn-info">Steal this page</button>
+      {{loginButtons}}
+    </div>
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">David's Wiki</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid main">
+    <div class="row-fluid">
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">
+            {{>heartedpages}}
+            {{>recentpages}}
+        </div><!--/.well -->
+      </div><!--/span-->
+      <div class="span9">
+        {{> page}}
+      </div>
+    </div>
+  </div>
+  <script src="/app/app.js"></script>
+</body>
+
+<template name="heartedpages">
+    {{#if pages.count}}
+      <li class="nav-header">
+        <i class="heart icon-heart starred"></i> pages
+      </li>
+      {{#each pages}}
+      <li><a class="internal" data="{{name}}" href="{{name}}">{{name}}</a>
+      </li>
+      {{/each}}
+    {{/if}}
+</template>
+
+<template name="recentpages">
+  <li class="nav-header">Recent pages</li>
+  {{#each pages}}
+  <li><a class="internal" data="{{name}}" href="{{name}}">{{name}}</a>
+  </li>
+  {{/each}}
+</template>
+
+<template name="para">
+  <div class="ui-state-default">
+    <span class="drag-handle">¶</span>
+    <!-- <i class="icon-align-justify drag-handle"></i> -->
+    <p class="para">
+      {{#if editing}}
+          <textarea id="para-textarea" class='editable'>{{this.content}}</textarea>
+      <i class="icon-remove-circle done-handle"></i></p>
+      {{else}}<span class='editable'>
+{{#linkify this.content}}{{/linkify}}</span>
+        <i class="icon-pencil edit-handle"></i></p>
+      {{/if}}
+    </p>
+  </div>
+</template>
+
+<template name="heart">
+  {{#if starred}}
+    <i class="heart icon-heart starred"></i>
+  {{else}}
+    <i class="heart icon-heart-empty unstarred"></i>
+  {{/if}}
+</template>
+
+<template name="page">
+  <h3>{{>editablepagetitle currentPage}} {{>heart}}</h3>
+  <div id="pages">
+    <div id="sortable">
+      {{#each paras}}
+        {{> para}}
+      {{/each}}
+    </div>
+    {{>newpara}}
+    {{>newpage}}
+  </div>
+</template>
+
+<template name="editablepagetitle">
+  {{#if editing_title}}
+    <input type="text" id="title-input" class="editing-title" value="{{ this }}"></input>
+  {{else}}
+    <span class="pagetitle">
+      {{ this }}
+    </span>
+  {{/if}}
+</template>
+
+<template name="newpara">
+  <button class="new-para btn"><i class="icon-plus"></i>&nbsp;new para</button>
+</template>
+<template name="newpage">
+  <button class="new-page btn"><i class="icon-file"></i>&nbsp;new page</button>
+</template>
