@@ -14,7 +14,7 @@ Template.newpara.events({
     var p = Paras.insert({
       index: index,
       'page': pageName,
-      'content': ["Click on this paragraph to make it yours."]
+      'content': ["Make this paragraph say what you want it to."]
     })
     Session.set("editing_para", p);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
