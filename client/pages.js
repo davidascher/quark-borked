@@ -16,9 +16,9 @@ Template.newpara.events({
       'page': pageName,
       'content': ["Click on this paragraph to make it yours."]
     })
-    startEditParagraph()
-    console.log(p);
     Session.set("editing_para", p);
+    Meteor.flush(); // force DOM redraw, so we can focus the edit field
+    activateInput(tmpl.find("#para-textarea"));
     // XXX would be good to make that paragraph be selected right away.
   }
 })
