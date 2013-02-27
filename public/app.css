@@ -1,0 +1,89 @@
+.main {
+	padding-top: 2em;
+}
+
+p.para {
+	display: inline;
+}
+
+span.pagetitle:hover {
+	background-color: #fff8b2;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+	position: static;
+}
+.right {
+	float: right;
+	margin-right: 1em;
+}
+
+#sortable { list-style-type: none; margin: 0; padding: 0; }
+/*#sortable div { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }*/
+.drag-handle { 
+	position: absolute; 
+	margin-left: -1.3em; 
+	min-width: 1.3em; 
+	width: 1.3em;
+}
+.drag-handle, .done-handle {
+	vertical-align: top;
+	opacity: .1;
+}
+
+.drag-handle:hover {
+	opacity: 1;
+	cursor: move;
+}
+
+.done-handle:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+.edit-handle {
+	padding-left: 1em;
+	width: 12px;
+	opacity: .1;
+}
+
+.sidebar-cluster {
+	transition: height 0.5s;
+	-moz-transition: height 0.5s;
+}
+.starred, .unstarred {
+	cursor: pointer;
+}
+
+.unstarred {
+	opacity: .2;
+}
+.unstarred:hover {
+	opacity: 1;
+	color: red;
+}
+
+.starred {
+	color: red;
+	opacity: .6;
+}
+
+.starred:hover {
+	opacity: 1;
+}
+
+.edit-handle:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+span.ipsum p {
+	display: inline;
+}
+
+.new-para {
+	margin-bottom: 2em;
+}
+
+.favorite {
+	font-size: 140px;
+	vertical-align: baseline;
+}
