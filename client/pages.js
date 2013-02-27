@@ -78,10 +78,10 @@ Template.editablepagetitle.events({
       var paras = Paras.find({page: Session.get('page_name')});
       console.log("newpagename", newpagename);
       console.log("modifying paragraphs: ", paras.count());
-      Session.set("page_name", newpagename);
       // XXX THIS IS NOT WORKING. WHY?
       Pages.update(page._id, {$set: {name: newpagename}})
       Paras.update(paras, {$set: {page: newpagename}})
+      Session.set("page_name", newpagename);
     }
   }
 })
