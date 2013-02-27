@@ -11,11 +11,12 @@ Template.newpara.events({
   'click': function(evt) {
     var pageName = Session.get("page_name");
     var index = Paras.find({page: pageName}).count() + 1;
-    Paras.insert({
+    var p = Paras.insert({
       index: index,
       'page': pageName,
       'content': ["Click on this paragraph to make it yours."]
     })
+    console.log(p);
     // XXX would be good to make that paragraph be selected right away.
   }
 })
