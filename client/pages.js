@@ -75,12 +75,12 @@ Template.editablepagetitle.events({
       Session.set("editing_title", null);
       var newpagename = tmpl.find("#title-input").value;
       var page = Pages.findOne({name: Session.get('page_name')});
-      var paras = Paras.find({page: Session.get('page_name')});
+      var paras = Paras.find();
       console.log("newpagename", newpagename);
       console.log("modifying paragraphs: ", paras.count());
       // XXX THIS IS NOT WORKING. WHY?
       Pages.update(page._id, {$set: {name: newpagename}})
-      Paras.update(paras, {$set: {page: newpagename}})
+      Paras.update({page: Session.get('page_name')}, {$set: {page: newpagename}})
       Session.set("page_name", newpagename);
     }
   }
