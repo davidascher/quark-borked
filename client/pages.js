@@ -74,9 +74,9 @@ Template.editablepagetitle.events({
     if (evt.which == 13) {
       Session.set("editing_title", null);
       var newpagename = tmpl.find("#title-input").value;
-      console.log("newpagename", newpagename);
       var page = Pages.findOne({name: Session.get('page_name')});
       var paras = Paras.find({page: Session.get('page_name')});
+      console.log("newpagename", newpagename);
       console.log("modifying paragraphs: ", paras.count());
       Session.set("page_name", newpagename);
       // XXX THIS IS NOT WORKING. WHY?
