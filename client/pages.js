@@ -75,6 +75,7 @@ Template.editablepagetitle.events({
       Session.set("editing_title", null);
       var newpagename = tmpl.find("#title-input").value;
       var page = Pages.findOne({name: Session.get('page_name')});
+      if (!page) return;
       var paras = Paras.find();
       console.log("newpagename", newpagename);
       console.log("modifying paragraphs: ", paras.count());
