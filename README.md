@@ -1,4 +1,0 @@
-quark
-=====
-
-learning about stuff.
