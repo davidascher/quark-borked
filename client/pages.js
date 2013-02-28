@@ -10,7 +10,6 @@ Redirects = new Meteor.Collection("redirects");
 
 
 Template.redirected.redirected_from = function() {
-  console.log(Session.get("redirected_from"));
   return Session.get("redirected_from");
 }
 
@@ -90,7 +89,6 @@ Template.editablepagetitle.editing_title = function() {
 var endPagetitleEditing = function(evt, tmpl) {
   evt.stopPropagation();
   evt.preventDefault();
-  console.log(evt.currentTarget);
   Session.set("editing_title", null);
   var oldpagename = Session.get('page_name');
   var newpagename = tmpl.find("#title-input").value;
@@ -274,19 +272,12 @@ Template.page.events({
   'blur': function(evt) {
     var para = $(evt.target).parent();
     var textarea = para.find("textarea").val();
-    console.log('ending paragraph editing')
     endParagraphEditing(this._id, this.index, textarea);
   },
 
   'keydown p.para': function(evt) {
     if (evt.which == 27) {
       endParagraphEditing(this._id, this.index, evt.target.value);
-      // Paras.update({_id: this._id}, {
-      //   page: this.page, 
-      //   index: this.index, 
-      //   content: []});
-      // Session.set("editing_para", null);
-      // confirmPageExists(this.page);
     }
   },
 
