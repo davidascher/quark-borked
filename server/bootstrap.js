@@ -35,7 +35,7 @@ Meteor.startup(function () {
     // load recipes from disk
     if (fs.existsSync(bootstrap_data_path)) {
       Meteor._debug("exists!");
-      files = fs.readdirSync(bootstrap_data_path);
+      var files = fs.readdirSync(bootstrap_data_path);
       Meteor._debug("files: ", files)
       Meteor._debug("files.length: ", files.length)
       for (var k = 0; k < files.length; k++) {
