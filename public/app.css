@@ -76,7 +76,7 @@ p.para {
 	opacity: 0;
 }
 
-.para:hover .drag-handle {
+.drag-handle < .para:hover  {
 	opacity: .1;
 }
 
