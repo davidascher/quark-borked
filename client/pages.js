@@ -86,7 +86,25 @@ Template.editablepagetitle.editing_title = function() {
   return Session.get("editing_title");
 }
 
+var endPagetitleEditing = function() {
+  Session.set("editing_title", null);
+  var oldpagename = Session.get('page_name');
+  var newpagename = tmpl.find("#title-input").value;
+  var page = Pages.findOne({name: oldpagename});
+  if (!page) return;
+  var paras = Paras.find();
+  Pages.update(page._id, {$set: {name: newpagename}})
+  updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
+  Session.set("page_name", newpagename);
+  Session.set("editand", null);
+  // register a redirect serverside
+  Redirects.insert({old_name: oldpagename, new_name: newpagename})
+}
+
 Template.editablepagetitle.events({
+  'blur': function(evt, tmpl) {
+    endPagetitleEditing();
+  },
   'click span.pagetitle': function(evt, tmpl) {
     Session.set("editing_title", true);
     Session.set("editand", this._id);
@@ -95,18 +113,7 @@ Template.editablepagetitle.events({
   },
   'keydown #title-input': function(evt, tmpl) {
     if (evt.which == 13) {
-      Session.set("editing_title", null);
-      var oldpagename = Session.get('page_name');
-      var newpagename = tmpl.find("#title-input").value;
-      var page = Pages.findOne({name: oldpagename});
-      if (!page) return;
-      var paras = Paras.find();
-      Pages.update(page._id, {$set: {name: newpagename}})
-      updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
-      Session.set("page_name", newpagename);
-      Session.set("editand", null);
-      // register a redirect serverside
-      Redirects.insert({old_name: oldpagename, new_name: newpagename})
+      endPagetitleEditing();
     }
   }
 })
