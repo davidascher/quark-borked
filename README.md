@@ -12,6 +12,7 @@ Dones:
 Todos:
  - persist reorderings through index tweakings
  - think about UX for new para and new page link
+ - think about new foreign link
  - redirects get scanned periodically to fix links from internal pages
  - (someday: redirects get broadcast to peers)
 
