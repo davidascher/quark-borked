@@ -254,6 +254,10 @@ Template.page.events({
     // Session.set("editing_para", this._id);
   },
 
+  'blur p.para': function(evt) {
+alert('blur');
+  },
+
   'keydown p.para': function(evt) {
     if (evt.which == 27) {
       endParagraphEditing(this._id, this.index, evt.target.value);
