@@ -44,7 +44,7 @@ Meteor.startup(function () {
         var stats = fs.statSync(filepath);
         if (stats.isFile(filepath)) {
           var page_name = path.basename(files[k], '.md');
-          page_name = page_name.replace(/-/, ' ', 'gim');
+          page_name = page_name.split('-').join(' ');
           Meteor._debug(k + ': ' + page_name);
           var contents = fs.readFileSync(filepath, 'utf8');
           var subparas = contents.split(/\n+/);
