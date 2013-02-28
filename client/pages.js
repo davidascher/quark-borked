@@ -120,6 +120,7 @@ Template.page.currentPage = function () {
       return redirect.new_name;
     }
   }
+  return '';
 };
 
 Template.page.paras = function() {
