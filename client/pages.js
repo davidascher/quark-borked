@@ -9,10 +9,6 @@ Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
 
 
-Template.redirected.redirected_from = function() {
-  return Session.get("redirected_from");
-}
-
 Template.newpara.events({
   'click': function(evt) {
     var pageName = Session.get("page_name");
@@ -27,7 +23,6 @@ Template.newpara.events({
     activateInput($("#para-textarea")); // XXX hacky - assumes only one such thing in page.
   }
 })
-
 
 Template.newlink.events({
   'click': function(evt) {
