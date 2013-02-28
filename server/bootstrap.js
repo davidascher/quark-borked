@@ -41,6 +41,7 @@ Meteor.startup(function () {
       for (var k = 0; k < files.length; k++) {
         var filepath = path.join(bootstrap_data_path, files[k]);
         Meteor._debug(k + ': ' + filepath);
+        var stats = fs.statSync(filepath);
         if (stats.isFile(filepath)) {
           var app_html = fs.readFileSync(filepath, 'utf8');
         }
