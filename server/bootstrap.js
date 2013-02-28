@@ -35,6 +35,7 @@ Meteor.startup(function () {
     if (fs.existsSync(bootstrap_data_path)) {
       Meteor._debug("exists!");
       fs.readdirSync(bootstrap_data_path, function(err, files) {
+        Meteor._debug("files: ", files)
         for (var k = 0; k < files.length; k++) {
           var filepath = path.join(bootstrap_data_path, files[k]);
           Meteor._debug(filepath);
