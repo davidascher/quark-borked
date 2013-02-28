@@ -71,6 +71,10 @@ h3.page-name {
 	margin-left: 20px;
 }
 
+textarea {
+	width: 100%;
+}
+
 p.para {
 	float: left;
 	margin-left: 20px;
