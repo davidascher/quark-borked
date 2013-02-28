@@ -8,21 +8,21 @@ Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
 
-Template.main.events({
-  'keydown': function(evt) {
-    console.log('keydown', evt.target.id);
-    if (evt.target.id == "root" && Session.get("editand") && (evt.which == 27)) {
-      alert('done');
-    }
-  },
-  'mousedown': function(evt) {
-    console.log('click', evt, evt.target.id);
-    if (evt.target.id == "root" && Session.get("editand")) {
-      alert('done');
-    }
-  },
+// Template.main.events({
+//   'keydown': function(evt) {
+//     console.log('keydown', evt.target.id);
+//     if (evt.target.id == "root" && Session.get("editand") && (evt.which == 27)) {
+//       alert('done');
+//     }
+//   },
+//   'mousedown': function(evt) {
+//     console.log('click', evt, evt.target.id);
+//     if (evt.target.id == "root" && Session.get("editand")) {
+//       alert('done');
+//     }
+//   },
 
-})
+// })
 
 Template.redirected.redirected_from = function() {
   console.log(Session.get("redirected_from"));
