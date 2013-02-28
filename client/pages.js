@@ -109,6 +109,7 @@ Template.heart.events({
 
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
+  if (!pageName) return '';
   page = Pages.findOne({name: pageName});
   console.log('looking for page named', pageName)
   if (page) {
