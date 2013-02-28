@@ -8,8 +8,9 @@ p.para {
 
 .card {
 	max-width: 25em;
-	border: 1px solid grey90;
+	border: 1px solid grey20;
 	border-radius: 3px;
+	margin: .3em;
 }
 
 .paragraph-placeholder {
