@@ -324,7 +324,7 @@ Meteor.startup(function () {
   Backbone.history.start({pushState: true});
   console.log('doing the thang');
   $( "#sortable" ).sortable(); // { handle: ".drag-handle" });
-  $( "#root" ).disableSelection();
+  $( "#sortable" ).disableSelection();
   $( ".para" ).enableSelection();
   // $( ".draggable .para" ).enableSelection();
 });
