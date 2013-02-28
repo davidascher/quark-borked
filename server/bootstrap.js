@@ -43,7 +43,14 @@ Meteor.startup(function () {
         Meteor._debug(k + ': ' + filepath);
         var stats = fs.statSync(filepath);
         if (stats.isFile(filepath)) {
-          var app_html = fs.readFileSync(filepath, 'utf8');
+          var page_name = path.basename(files[k]);
+          var contents = fs.readFileSync(filepath, 'utf8');
+          var subparas = contents.split(/\n+/);
+          var timestamp = (new Date()).getTime();
+          Pages.insert({name: page_name, mtime: timestamp});
+          for (var j = 0; j < subparas.contents.length; j++) {
+            Paras.insert({index: j, page: page_name, content: subparas[j]})
+          }
         }
       }
     } else {
