@@ -133,7 +133,7 @@ Template.heart.events({
 Template.page.rendered = function() {
   $("#sortable").sortable({ handle: ".drag-handle", 
     update: updateParagraphOrder,
-    placeholder: "paragraph-placeholder"});
+    placeholder: "paragraph-placeholder"
   });
 }
 
