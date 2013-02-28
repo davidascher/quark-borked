@@ -4,9 +4,10 @@
 // make some pages starrable
 
 
-Pages = new Meteor.Collection("pages");
-Paras = new Meteor.Collection("paras");
-Redirects = new Meteor.Collection("redirects");
+var Pages = new Meteor.Collection("pages");
+var Paras = new Meteor.Collection("paras");
+var Redirects = new Meteor.Collection("redirects");
+var showdown;
 
 Template.newpara.events({
   'click': function(evt) {
@@ -340,7 +341,7 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  var showdown = new Showdown.converter();
+  showdown = new Showdown.converter();
 });
 
 // Subscribe to 'pages' collection on startup.
