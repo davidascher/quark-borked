@@ -53,7 +53,8 @@ span.pagetitle:hover {
 	margin-right: 1.3em; 
 	min-width: 1.3em; 
 	width: 1.3em;
-	clear:right;
+	float: left;
+	/*clear:right;*/
 }
 
 p.para {
