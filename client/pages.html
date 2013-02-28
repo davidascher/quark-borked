@@ -70,8 +70,7 @@
         {{#if editing}}
             <textarea id="para-textarea" class='editable'>{{this.content}}</textarea>
         <i class="icon-remove-circle done-handle"></i>
-        {{else}}<i class="icon-pencil edit-handle"></i><span class='editable'>
-  {{#linkify this.content}}{{/linkify}}</span>
+        {{else}}<span class='editable'>{{#linkify this.content}}{{/linkify}}</span>
         {{/if}}
       </p>
     </div>
