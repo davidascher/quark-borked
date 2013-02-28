@@ -6,7 +6,7 @@ p.para {
 	display: inline;
 }
 
-#draggable p { cursor: move; }
+.draggable { cursor: move; }
 
 span.pagetitle:hover {
 	background-color: #fff8b2;
