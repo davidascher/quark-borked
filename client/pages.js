@@ -334,10 +334,10 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  $( "#sortable" ).sortable({ 
-    handle: ".drag-handle" ,
-    update: updateParagraphOrder
-  });
+  // $( "#sortable" ).sortable({ 
+  //   handle: ".drag-handle" ,
+  //   update: updateParagraphOrder
+  // });
   $( ".drag-handle" ).disableSelection();
   $( ".para" ).enableSelection();
 });
