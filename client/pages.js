@@ -7,7 +7,7 @@
 Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
-
+var showdown = new Showdown.converter();
 
 Template.newpara.events({
   'click': function(evt) {
@@ -302,8 +302,10 @@ renderInternalLink = function(match, name) {
 };
 
 Handlebars.registerHelper('linkify', function(content, options) {
-  var retval = content[0].replace(/\[\[([^\]]+)\]\]/gi, renderInternalLink).replace(/\[(http.*?) (.*?)\]/gi, "<a class=\"external\" target=\"_blank\" href=\"$1\" title=\"$1\" rel=\"nofollow\">$2</a>");
-  return new Handlebars.SafeString(retval);
+  var original = content[0];
+  var html = converter.makeHtml(original);
+  var linkified = html.replace(/\[\[([^\]]+)\]\]/gi, renderInternalLink).replace(/\[(http.*?) (.*?)\]/gi, "<a class=\"external\" target=\"_blank\" href=\"$1\" title=\"$1\" rel=\"nofollow\">$2</a>");
+  return new Handlebars.SafeString(linkified);
 });
 
 
