@@ -21,7 +21,7 @@ p.para {
 .buttonbar {
 	display: block;
 }
-.new-para, .new-page, .new-link, .newothers {
+.new-para, .new-page, .new-link, .new-others {
 	vertical-align: baseline;
 }
 
