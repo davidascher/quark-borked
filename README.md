@@ -1,6 +1,9 @@
 quark
 =====
 
+Build notes:
+ - needs jquery-ui that matches jquery.
+
 Microfeatures
  x renamed pages register redirects serverside [this feel great as a user]
  x click away from textbox should escape / save it
