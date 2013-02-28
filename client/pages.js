@@ -138,7 +138,8 @@ Template.heart.events({
 Template.page.rendered = function() {
   console.log(this);
   console.log($("#sortable").text());
-  // $("#sortable").sortable({ handle: ".drag-handle" });
+  $("#sortable").sortable({ handle: ".drag-handle" });
+  $("#sortable").css({'color': 'red'}));
 }
 
 Template.page.currentPage = function () {
