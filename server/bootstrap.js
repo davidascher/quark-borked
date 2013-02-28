@@ -30,6 +30,7 @@ Meteor.startup(function () {
         Paras.insert({index: j, page: data[i].name, content: data[i].contents[j]})
       }
     }
+    Meteor._debug("looking at " + bootstrap_data_path);
     // load recipes from disk
     if (fs.existsSync(bootstrap_data_path)) {
       fs.readdirSync(bootstrap_data_path, function(err, files) {
