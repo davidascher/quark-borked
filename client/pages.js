@@ -274,6 +274,7 @@ Template.page.events({
   'blur': function(evt) {
     var para = $(evt.target).parent();
     var textarea = para.find("textarea").val();
+    console.log('ending paragraph editing')
     endParagraphEditing(this._id, this.index, textarea);
   },
 
