@@ -211,7 +211,7 @@ function endParagraphEditing(id, index, contents) {
   if (contents.length == 0) {
     Paras.remove(id);
   } else {
-    var subparas = contents.split(/\n+/);
+    var subparas = contents.split(/\n\n+/);
     var numsubparas = subparas.length;
     // if it has double newlines, split it
     if (numsubparas > 1) {
