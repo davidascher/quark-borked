@@ -66,6 +66,7 @@
   <div class="ui-state-default draggable">
     <span class="drag-handle">¶</span>
     <!-- <i class="icon-align-justify drag-handle"></i> -->
+    <div class="right">
     <p class="para" data-id='{{_id}}' data-index='{{index}}'>
       {{#if editing}}
           <textarea id="para-textarea" class='editable'>{{this.content}}</textarea>
@@ -75,6 +76,7 @@
         <i class="icon-pencil edit-handle"></i></p>
       {{/if}}
     </p>
+  </div>
   </div>
 </template>
 
