@@ -1,7 +1,7 @@
 quark
 =====
 
-Dones:
+Microfeatures
  x renamed pages register redirects serverside [this feel great as a user]
  x click away from textbox should escape / save it
  x persist reorderings through index tweakings
@@ -19,11 +19,12 @@ Todos:
 	 	- use readability service to extract content, store that in mongo
 	 - think about search interactions, curating search results
 
+	 - mock up social search & central search
+
   - make personal:
 	  - when not logged in, can't edit?
 	  - or make not-logged-in-edits suggestions for curation?
 	 	
-
 	- make alive
 	 - new -> json, code blobs
 	 - realtime content - how should it be indicated?
