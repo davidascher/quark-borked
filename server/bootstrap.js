@@ -53,6 +53,7 @@ Meteor.startup(function () {
           }
         }
       }
+      Meteor._debug("Added " + files.length + " pages.");
     } else {
       Meteor._debug("directory doesn't exist");
     }
