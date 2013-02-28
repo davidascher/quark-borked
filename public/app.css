@@ -19,6 +19,9 @@ p.para {
 .buttonbar {
 	display: block;
 }
+.new-para, .new-page, .new-link {
+	vertical-align: baseline;
+}
 
 span.pagetitle:hover {
 	background-color: #fff8b2;
