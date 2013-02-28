@@ -80,9 +80,7 @@ Template.editablepagetitle.events({
       if (!page) return;
       var paras = Paras.find();
       Pages.update(page._id, {$set: {name: newpagename}})
-      console.log("tweaking " + Paras.find({'page': oldpagename}).count() + "paras");
       updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
-      console.log('tweaked ', updates);
       Session.set("page_name", newpagename);
       // register a redirect serverside
       Redirects.insert({old_name: oldpagename, new_name: newpagename})
@@ -142,7 +140,6 @@ function confirmPageExists(pageName) {
       });
     return;
   }
-  console.log("creating page as it doesn't exist")
   Pages.insert({name: pageName, 
     mtime: timestamp
   });
@@ -276,7 +273,6 @@ var PagesRouter = Backbone.Router.extend({
     Session.set("page_name", "Welcome");
   },
   main: function (page_name) {
-  	console.log("in main handler, page_name is ", unescape(page_name));
     // debugger;
     Session.set("page_name", unescape(page_name));
   },
