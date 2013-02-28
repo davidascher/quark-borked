@@ -8,6 +8,20 @@ Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
 
+Template.main.events({
+  'keydown body': function(evt) {
+    if (Session.get("editand") && (evt.which == 27)) {
+      alert('done');
+    }
+  },
+  'mousedown body': function(evt) {
+    if (Session.get("editand")) {
+      alert('done');
+    }
+  },
+
+})
+
 Template.redirected.redirected_from = function() {
   console.log(Session.get("redirected_from"));
   return Session.get("redirected_from");
@@ -73,6 +87,7 @@ Template.editablepagetitle.editing_title = function() {
 Template.editablepagetitle.events({
   'click span.pagetitle': function(evt, tmpl) {
     Session.set("editing_title", true);
+    Session.set("editand", this._id);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput(tmpl.find("#title-input"));
   },
@@ -87,6 +102,7 @@ Template.editablepagetitle.events({
       Pages.update(page._id, {$set: {name: newpagename}})
       updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
       Session.set("page_name", newpagename);
+      Session.set("editand", null);
       // register a redirect serverside
       Redirects.insert({old_name: oldpagename, new_name: newpagename})
     }
@@ -115,10 +131,10 @@ Template.page.currentPage = function () {
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
     Session.set("page_name", redirect.new_name);
-    Session.set("redirected_from", pageName);
+    // Session.set("redirected_from", pageName);
     return redirect.new_name;
   } else {
-    Session.set("redirected_from", null);
+    // Session.set("redirected_from", null);
     return pageName.trim();
   }
   return '';
@@ -209,6 +225,7 @@ var activateInput = function (input) {
 
 var startEditParagraph = function(para, tmpl) {
     Session.set("editing_para", para._id);
+    Session.set("editand", para._id);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput(tmpl.find("#para-textarea"));
 }
