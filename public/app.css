@@ -9,6 +9,7 @@ p.para {
 .card {
 	max-width: 25em;
 	border: 1px solid grey90;
+	border-radius: 3px;
 }
 
 .paragraph-placeholder {
