@@ -10,7 +10,7 @@ Dones:
  x click away from textbox should escape / save it
 
 Todos:
- - figure out why paragraph reordering isn't reliably smooth.
+ - figure out how to indent para while keeping paragraph reordering reliably smooth.
  - persist reorderings through index tweakings
  - think about UX for new para and new page link
  - think about new foreign link
