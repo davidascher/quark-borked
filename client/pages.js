@@ -73,8 +73,9 @@ Template.editablepagetitle.events({
   'keydown #title-input': function(evt, tmpl) {
     if (evt.which == 13) {
       Session.set("editing_title", null);
+      var oldpagename = Session.get('page_name');
       var newpagename = tmpl.find("#title-input").value;
-      var page = Pages.findOne({name: Session.get('page_name')});
+      var page = Pages.findOne({name: oldpagename});
       if (!page) return;
       var paras = Paras.find();
       console.log("newpagename", newpagename);
@@ -83,6 +84,8 @@ Template.editablepagetitle.events({
       Pages.update(page._id, {$set: {name: newpagename}})
       console.log("update", Paras.update({page: Session.get('page_name')}, {$set: {page: newpagename}}, {multi: true}));
       Session.set("page_name", newpagename);
+      // register a redirect serverside
+      Redirects.insert({old: oldpagename, 'new': newpagename})
     }
   }
 })
