@@ -140,7 +140,7 @@ Template.page.rendered = function() {
   // console.log($("#sortable").text());
   $("#sortable").sortable({ handle: ".drag-handle", 'helper': 'clone'});
   $("#sortable").css({'color': 'red'});
-  $( "#sortable" ).on( "sortactivate", function( event, ui ) {console.log('SORTACTIVATE')} );
+  $("#sortable").on( "sortactivate", function( event, ui ) {console.log('SORTACTIVATE')} );
 }
 
 Template.page.currentPage = function () {
