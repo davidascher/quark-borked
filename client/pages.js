@@ -132,8 +132,9 @@ Template.heart.events({
 
 Template.page.rendered = function() {
   $("#sortable").sortable({ handle: ".drag-handle", 
+    update: updateParagraphOrder,
     placeholder: "paragraph-placeholder"});
-
+  });
 }
 
 Template.page.currentPage = function () {
@@ -320,21 +321,25 @@ var PagesRouter = Backbone.Router.extend({
 
 Router = new PagesRouter;
 
+function updateParagraphOrder(event, ui) {
+  console.log('in tweaking indices');
+  // build a new array items in the right order, and push them
+  var rows = $(event.target).children('p');
+  _.each(rows, function(element,index,list) {
+    console.log(element. index, list);
+    var id = $(element).data('id');
+    Paras.update({_id: id}, {$set: {index: index}});
+  });
+}
+
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  $( "#sortable" ).sortable({ handle: ".drag-handle" });
+  $( "#sortable" ).sortable({ 
+    handle: ".drag-handle" ,
+    update: updateParagraphOrder
+  });
   $( ".drag-handle" ).disableSelection();
   $( ".para" ).enableSelection();
-  $( "#sortable" ).on( "sortupdate", function( event, ui ) {
-    console.log('in tweaking indices');
-    // build a new array items in the right order, and push them
-    var rows = $(event.target).children('p');
-    _.each(rows, function(element,index,list) {
-      console.log(element. index, list);
-      var id = $(element).data('id');
-      Paras.update({_id: id}, {$set: {index: index}});
-    });
-  });
 });
 
 // Subscribe to 'pages' collection on startup.
