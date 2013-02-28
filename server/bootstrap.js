@@ -26,5 +26,8 @@ Meteor.startup(function () {
         Paras.insert({index: j, page: data[i].name, content: data[i].contents[j]})
       }
     }
+    // load recipes from disk
+
+
   }
 });
