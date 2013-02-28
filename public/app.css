@@ -6,7 +6,9 @@ p.para {
 	display: inline;
 }
 
-.draggable { cursor: move; }
+.draggable .drag-handle {
+	cursor: move; 
+}
 
 span.pagetitle:hover {
 	background-color: #fff8b2;
@@ -20,6 +22,7 @@ span.pagetitle:hover {
 }
 
 #sortable { list-style-type: none; margin: 0; padding: 0; }
+
 /*#sortable div { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }*/
 .drag-handle { 
 	position: absolute; 
