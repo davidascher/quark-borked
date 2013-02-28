@@ -81,7 +81,8 @@ Template.editablepagetitle.events({
       var paras = Paras.find();
       Pages.update(page._id, {$set: {name: newpagename}})
       console.log("tweaking " + Paras.find({'page': oldpagename}).count() + "paras");
-      Paras.update({'page': oldpagename}, {$set: {page: newpagename}})
+      updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}})
+      console.log('tweaked ', updates);
       Session.set("page_name", newpagename);
       // register a redirect serverside
       Redirects.insert({old_name: oldpagename, new_name: newpagename})
