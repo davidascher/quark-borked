@@ -81,8 +81,8 @@ p.para {
 	cursor: pointer;
 }
 .edit-handle {
-	padding-left: 1em;
-	width: .1em;
+	padding-left: .2em;
+	width: 12px;
 	opacity: .1;
 }
 
