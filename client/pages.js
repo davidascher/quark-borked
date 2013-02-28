@@ -87,6 +87,8 @@ Template.editablepagetitle.editing_title = function() {
 }
 
 var endPagetitleEditing = function(evt, tmpl) {
+  evt.stopPropagation();
+  evt.preventDefault();
   Session.set("editing_title", null);
   var oldpagename = Session.get('page_name');
   var newpagename = tmpl.find("#title-input").value;
@@ -103,8 +105,6 @@ var endPagetitleEditing = function(evt, tmpl) {
 
 Template.editablepagetitle.events({
   'blur': function(evt, tmpl) {
-    evt.stopPropagation();
-    evt.preventDefault();
     endPagetitleEditing(evt, tmpl);
   },
   'click span.pagetitle': function(evt, tmpl) {
@@ -115,8 +115,6 @@ Template.editablepagetitle.events({
   },
   'keydown #title-input': function(evt, tmpl) {
     if (evt.which == 13) {
-      evt.stopPropagation();
-      evt.preventDefault();
       endPagetitleEditing(evt, tmpl);
     }
   }
