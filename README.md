@@ -13,3 +13,4 @@ Todos:
  - show redirects?
  - (someday: redirects get broadcast to peers)
 
+Think about cards - current card, searched cards, past cards?
