@@ -133,6 +133,7 @@ Template.heart.events({
 Template.page.rendered = function() {
   $("#sortable").sortable({ handle: ".drag-handle", 
     placeholder: "paragraph-placeholder"});
+
 }
 
 Template.page.currentPage = function () {
@@ -320,7 +321,7 @@ Meteor.startup(function () {
   $( "#sortable" ).sortable({ handle: ".drag-handle" });
   $( ".drag-handle" ).disableSelection();
   $( ".para" ).enableSelection();
-  // $( ".draggable .para" ).enableSelection();
+  $( "#sortable" ).on( "sortupdate", fixupIndices);
 });
 
 // Subscribe to 'pages' collection on startup.
