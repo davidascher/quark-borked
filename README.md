@@ -7,6 +7,7 @@ Dones:
  x persist reorderings through index tweakings
 
 Todos:
+ - think about urls, routing, etc.
  - figure out how to indent para while keeping paragraph reordering reliably smooth.
  - think about UX for new para and new page link
  - redirects get scanned periodically to fix links from internal pages
