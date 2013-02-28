@@ -162,6 +162,10 @@ Template.para.editing = function () {
   return Session.equals('editing_para', this._id);
 };
 
+Template.page.itemlist = function() {
+return Items.find({},{sort:{listposition:1}});
+}
+
 function confirmPageExists(pageName) {
   var timestamp = (new Date()).getTime();
   page = Pages.findOne({name: pageName});
@@ -329,15 +333,7 @@ Meteor.startup(function () {
       var id = $(element).data('id');
       Paras.update({_id: id}, {$set: {index: index}});
     });
-
-    // var pageName = Session.get("page_name");
-    // var paras = Paras.find({page: pageName}, {sort: {index: 1}});
-    // var index = 0;
-    // paras.forEach(function(para) {
-    //   Paras.update(para._id, {$set: {index: index}});
-    //   index++;
-    // });
-  } );
+  });
 });
 
 // Subscribe to 'pages' collection on startup.
