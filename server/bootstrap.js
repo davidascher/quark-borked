@@ -39,7 +39,7 @@ Meteor.startup(function () {
         Meteor._debug("files.length: ", files.length)
         for (var k = 0; k < files.length; k++) {
           var filepath = path.join(bootstrap_data_path, files[k]);
-          Meteor._debug(filepath);
+          Meteor._debug(k + ': ' + filepath);
           var app_html = fs.readFileSync(filepath, 'utf8');
         }
       })
