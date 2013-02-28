@@ -135,6 +135,8 @@ Template.page.rendered = function() {
     update: updateParagraphOrder,
     placeholder: "paragraph-placeholder"
   });
+  $( ".drag-handle" ).disableSelection();
+  $( ".para" ).enableSelection();
 }
 
 Template.page.currentPage = function () {
@@ -333,8 +335,6 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  $( ".drag-handle" ).disableSelection();
-  $( ".para" ).enableSelection();
 });
 
 // Subscribe to 'pages' collection on startup.
