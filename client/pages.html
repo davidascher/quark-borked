@@ -99,6 +99,7 @@
       {{>newpara}}
       {{>newpage}}
       {{>newlink}}
+      {{>newothers}}
     </div>
   </div>
 </template>
@@ -121,4 +122,17 @@
 </template>
 <template name="newlink">
   <button class="new-link btn">+ <i class="icon-link"></i></button>
+</template>
+<template name="newothers">
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    + …
+    <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li>data</li>
+      <li>visualization</li>
+      <li>image</li>
+    </ul>
+  </div>
 </template>
