@@ -2,7 +2,7 @@ quark
 =====
 
 Build notes:
- - needs jquery-ui that matches jquery.
+ - needs jquery-ui that matches jquery or para reordering won't work.
 
 Microfeatures
  x renamed pages register redirects serverside [this feel great as a user]
