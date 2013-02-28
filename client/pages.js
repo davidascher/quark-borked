@@ -116,8 +116,8 @@ Template.page.currentPage = function () {
     var redirect = Redirects.findOne({old_name: pageName});
     if (redirect) {
       Session.set("page_name", redirect.new_name)
+      return redirect.new_name;
     }
-    return redirect.new_name;
   }
 };
 
