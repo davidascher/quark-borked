@@ -9,6 +9,7 @@ Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
 
 Template.redirected.redirected_from = function() {
+  console.log(Session.get("redirected_from"));
   return Session.get("redirected_from");
 }
 
