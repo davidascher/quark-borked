@@ -51,7 +51,7 @@ Template.newlink.events({
     var p = Paras.insert({
       index: index,
       'page': pageName,
-      'content': ["Make this paragraph say what you want it to."]
+      'content': ["This is how you add a link to a [http://www.mozilla.org page on another website]"]
     })
     Session.set("editing_para", p);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
