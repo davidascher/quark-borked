@@ -3,7 +3,11 @@
   <link rel='stylesheet' type='text/css' href='/app.css'>
 </head>
 <body>
+  {{>main}}
+  <script src="/app/app.js"></script>
+</body>
 
+<template name="main">
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="right">
       <button class="btn btn-info">Steal this page</button>
@@ -29,8 +33,7 @@
       </div>
     </div>
   </div>
-  <script src="/app/app.js"></script>
-</body>
+</template>
 
 <template name="redirected">
   {{#if redirected_from}}
