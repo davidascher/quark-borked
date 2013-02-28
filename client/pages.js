@@ -303,6 +303,7 @@ renderInternalLink = function(match, name) {
 
 Handlebars.registerHelper('linkify', function(content, options) {
   var original = content[0];
+  converter = new Showdown.converter();
   console.log('original', original);
   console.log('converter', converter);
   var html = converter.makeHtml(original);
