@@ -45,6 +45,10 @@ span.pagetitle:hover {
 	min-width: 1.3em; 
 	width: 1.3em;
 }
+
+p.para {
+	margin-left: 1.5em;
+}
 .drag-handle, .done-handle {
 	vertical-align: top;
 	opacity: .1;
