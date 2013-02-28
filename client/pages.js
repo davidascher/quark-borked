@@ -87,7 +87,7 @@ Template.editablepagetitle.events({
       Session.set("page_name", newpagename);
       // register a redirect serverside
       Redirects.insert({old_name: oldpagename, new_name: newpagename})
-      console.log(Redirects.findOne();)
+      console.log(Redirects.findOne());
     }
   }
 })
