@@ -16,6 +16,10 @@ p.para {
 	cursor: move; 
 }
 
+.buttonbar {
+	display: block;
+}
+
 span.pagetitle:hover {
 	background-color: #fff8b2;
 }
