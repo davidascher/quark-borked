@@ -10,7 +10,7 @@ p.para {
 	height: 1.2em; 
 	line-height: 1.2em;
 	width: 10em;
-	background: #fff8b2;	
+	border: 1px #fff8b2;	
 }
 .draggable .drag-handle {
 	cursor: move; 
