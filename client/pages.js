@@ -330,6 +330,7 @@ Meteor.startup(function () {
     // build a new array items in the right order, and push them
     var rows = $(event.target).children('p');
     _.each(rows, function(element,index,list) {
+      console.log(element. index, list);
       var id = $(element).data('id');
       Paras.update({_id: id}, {$set: {index: index}});
     });
