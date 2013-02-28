@@ -28,10 +28,15 @@
         {{> page}}
       </div>
     </div>
+    {{>redirected}}
   </div>
   <script src="/app/app.js"></script>
 </body>
 
+<template name="redirected">
+  {{#if redirected_from}}
+  <span class="redirected-from">You were redirected here from '{{redirected_from}}', a page which was renamed to '{{pageName}}'</span>
+</template>
 <template name="heartedpages">
     {{#if pages.count}}
       <li class="nav-header">
