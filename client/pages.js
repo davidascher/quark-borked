@@ -103,6 +103,8 @@ var endPagetitleEditing = function(evt, tmpl) {
 
 Template.editablepagetitle.events({
   'blur': function(evt, tmpl) {
+    evt.stopPropagation();
+    evt.preventDefault();
     endPagetitleEditing(evt, tmpl);
   },
   'click span.pagetitle': function(evt, tmpl) {
