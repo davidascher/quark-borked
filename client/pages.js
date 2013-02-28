@@ -306,6 +306,7 @@ Handlebars.registerHelper('linkify', function(content, options) {
   var html = converter.makeHtml(original);
   console.log('html', html);
   var linkified = html.replace(/\[\[([^\]]+)\]\]/gi, renderInternalLink).replace(/\[(http.*?) (.*?)\]/gi, "<a class=\"external\" target=\"_blank\" href=\"$1\" title=\"$1\" rel=\"nofollow\">$2</a>");
+  console.log('linkified', linkified);
   return new Handlebars.SafeString(linkified);
 });
 
