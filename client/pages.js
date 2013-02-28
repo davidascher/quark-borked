@@ -330,13 +330,13 @@ Meteor.startup(function () {
       Paras.update({_id: id}, {$set: {index: index}});
     });
 
-    var pageName = Session.get("page_name");
-    var paras = Paras.find({page: pageName}, {sort: {index: 1}});
-    var index = 0;
-    paras.forEach(function(para) {
-      Paras.update(para._id, {$set: {index: index}});
-      index++;
-    });
+    // var pageName = Session.get("page_name");
+    // var paras = Paras.find({page: pageName}, {sort: {index: 1}});
+    // var index = 0;
+    // paras.forEach(function(para) {
+    //   Paras.update(para._id, {$set: {index: index}});
+    //   index++;
+    // });
   } );
 });
 
