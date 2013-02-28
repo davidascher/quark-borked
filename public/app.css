@@ -6,6 +6,11 @@ p.para {
 	display: inline;
 }
 
+.card {
+	max-width: 25em;
+	border: 1px solid grey90;
+}
+
 .paragraph-placeholder {
 	min-height: 1.2em; 
 	line-height: 1.2em;
