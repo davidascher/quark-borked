@@ -322,7 +322,7 @@ Router = new PagesRouter;
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  $( "p.para" ).sortable(); // { handle: ".drag-handle" });
+  $( "p" ).sortable(); // { handle: ".drag-handle" });
   $( "#root" ).disableSelection();
   $( ".para" ).enableSelection();
   // $( ".draggable .para" ).enableSelection();
