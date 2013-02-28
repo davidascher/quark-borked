@@ -89,6 +89,7 @@ Template.editablepagetitle.editing_title = function() {
 var endPagetitleEditing = function(evt, tmpl) {
   evt.stopPropagation();
   evt.preventDefault();
+  console.log(evt.currentTarget);
   Session.set("editing_title", null);
   var oldpagename = Session.get('page_name');
   var newpagename = tmpl.find("#title-input").value;
