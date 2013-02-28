@@ -256,7 +256,7 @@ Template.page.events({
 
   },
 
-  'doubleclick span.editable': function (evt, tmpl) {
+  'dblclick span.editable': function (evt, tmpl) {
     evt.stopPropagation();
     evt.preventDefault();
     startEditParagraph(this, tmpl)
