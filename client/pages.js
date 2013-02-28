@@ -136,8 +136,8 @@ Template.heart.events({
 })
 
 Template.page.rendered = function() {
-  console.log($("#sortable").length());
-  $("#sortable").sortable({ handle: ".drag-handle" });
+  console.log($("#sortable").length;
+  // $("#sortable").sortable({ handle: ".drag-handle" });
 }
 
 Template.page.currentPage = function () {
