@@ -16,7 +16,7 @@ Template.main.events({
     }
   },
   'click': function(evt) {
-    console.log('click', evt);
+    console.log('click', evt.target.id);
     if (evt.target.id == "root" && Session.get("editand")) {
       alert('done');
     }
