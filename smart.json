@@ -1,6 +1,7 @@
 {
   "packages": {
     "accounts-persona": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "jquery-ui": {}
   }
 }
