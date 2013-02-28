@@ -136,7 +136,8 @@ Template.heart.events({
 })
 
 Template.page.rendered = function() {
-  $("#sortable").sortable({ handle: ".drag-handle", 'helper': 'clone'});
+  $("#sortable").sortable({ handle: ".drag-handle", 
+    placeholder: "paragraph-placeholder"});
 }
 
 Template.page.currentPage = function () {
