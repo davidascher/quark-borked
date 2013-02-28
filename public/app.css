@@ -29,6 +29,7 @@ p.para {
 
 .buttonbar {
 	display: block;
+	clear: both;
 }
 .new-para, .new-page, .new-link, .new-others {
 	vertical-align: baseline;
