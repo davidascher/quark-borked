@@ -35,7 +35,7 @@ Meteor.startup(function () {
       fs.readdirSync(bootstrap_data_path, function(err, files) {
         for (var k = 0; k < files.length; k++) {
           var filepath = path.join(bootstrap_data_path, files[k]);
-          console.log(filepath);
+          Meteor._debug(filepath);
           var app_html = fs.readFileSync(filepath, 'utf8');
         }
 
