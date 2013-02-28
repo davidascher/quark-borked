@@ -99,6 +99,7 @@ p.para {
 	padding-left: .2em;
 	width: 12px;
 	opacity: .1;
+	float: right;
 }
 
 .sidebar-cluster {
