@@ -136,11 +136,7 @@ Template.heart.events({
 })
 
 Template.page.rendered = function() {
-  // console.log(this);
-  // console.log($("#sortable").text());
   $("#sortable").sortable({ handle: ".drag-handle", 'helper': 'clone'});
-  $("#sortable").css({'color': 'red'});
-  $("#sortable").on( "sortactivate", function( event, ui ) {console.log('SORTACTIVATE')} );
 }
 
 Template.page.currentPage = function () {
