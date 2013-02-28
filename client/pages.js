@@ -110,12 +110,8 @@ Template.heart.events({
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
   if (!pageName) return '';
-  page = Pages.findOne({name: pageName});
-  console.log('looking for page named', pageName)
-  if (page) {
-    console.log('found it')
-    if (pageName) return pageName.trim();
-  } else {
+    // if (pageName) return pageName.trim();
+  // } else {
     // look for a redirect
     console.log('looking for redirects from', pageName)
     var redirect = Redirects.findOne({old_name: pageName});
@@ -124,11 +120,12 @@ Template.page.currentPage = function () {
       Session.set("page_name", redirect.new_name);
       return redirect.new_name;
     } else {
-      console.log('creating new page')
-      // create new page.
-      var timestamp = (new Date()).getTime();
-      Pages.insert({name: pageName, mtime: timestamp});
       return pageName.trim();
+    //   console.log('creating new page')
+    //   // create new page.
+    //   var timestamp = (new Date()).getTime();
+    //   Pages.insert({name: pageName, mtime: timestamp});
+    //   return pageName.trim();
     }
   }
   return '';
