@@ -117,6 +117,7 @@ Template.page.currentPage = function () {
     if (redirect) {
       Session.set("page_name", redirect.new_name)
     }
+    return redirect.new_name;
   }
 };
 
