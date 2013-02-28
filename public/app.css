@@ -7,7 +7,9 @@ p.para {
 }
 
 .paragraph-placeholder {
-	height: .5em; line-height: .2em;
+	height: .5em; 
+	line-height: .2em;
+	width: 10em;
 	background: #fff8b2;	
 }
 .draggable .drag-handle {
