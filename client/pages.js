@@ -79,15 +79,10 @@ Template.editablepagetitle.events({
       var page = Pages.findOne({name: oldpagename});
       if (!page) return;
       var paras = Paras.find();
-      console.log("newpagename", newpagename);
-      console.log("modifying paragraphs: ", paras.count());
-      // XXX THIS IS NOT WORKING. WHY?
       Pages.update(page._id, {$set: {name: newpagename}})
-      console.log("update", Paras.update({page: Session.get('page_name')}, {$set: {page: newpagename}}, {multi: true}));
       Session.set("page_name", newpagename);
       // register a redirect serverside
       Redirects.insert({old_name: oldpagename, new_name: newpagename})
-      console.log(Redirects.findOne());
     }
   }
 })
@@ -110,10 +105,9 @@ Template.heart.events({
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
   if (!pageName) return '';
-  console.log('looking for redirects from', pageName)
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
-    console.log("found one to", redirect.new_name);
+    // this is an actual client-side redirect, kinda cute!
     Session.set("page_name", redirect.new_name);
     return redirect.new_name;
   } else {
