@@ -86,7 +86,7 @@ Template.editablepagetitle.events({
       console.log("update", Paras.update({page: Session.get('page_name')}, {$set: {page: newpagename}}, {multi: true}));
       Session.set("page_name", newpagename);
       // register a redirect serverside
-      Redirects.insert({old: oldpagename, 'new': newpagename})
+      Redirects.insert({old_name: oldpagename, new_name: newpagename})
     }
   }
 })
@@ -109,6 +109,11 @@ Template.heart.events({
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
   if (pageName) return pageName.trim();
+  // look for a redirect
+  var redirect = Redirects.findOne({old_name: pageName});
+  if (redirect) {
+    Session.set("page_name", redirect.new_name)
+  }
 };
 
 Template.page.paras = function() {
