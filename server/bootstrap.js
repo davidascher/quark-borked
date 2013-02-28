@@ -48,7 +48,7 @@ Meteor.startup(function () {
           var subparas = contents.split(/\n+/);
           var timestamp = (new Date()).getTime();
           Pages.insert({name: page_name, mtime: timestamp});
-          for (var j = 0; j < subparas.contents.length; j++) {
+          for (var j = 0; j < subparas.length; j++) {
             Paras.insert({index: j, page: page_name, content: subparas[j]})
           }
         }
