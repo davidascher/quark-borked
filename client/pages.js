@@ -7,7 +7,6 @@
 Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
-$( ".draggable" ).draggable({ handle: ".drag-handle" });
 // Template.main.events({
 //   'keydown': function(evt) {
 //     console.log('keydown', evt.target.id);
@@ -323,6 +322,7 @@ Router = new PagesRouter;
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
+  $( ".draggable" ).draggable({ handle: ".drag-handle" });
 });
 
 // Subscribe to 'pages' collection on startup.
