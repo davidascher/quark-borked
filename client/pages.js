@@ -44,6 +44,22 @@ Template.newpara.events({
 })
 
 
+Template.newlink.events({
+  'click': function(evt) {
+    var pageName = Session.get("page_name");
+    var index = Paras.find({page: pageName}).count() + 1;
+    var p = Paras.insert({
+      index: index,
+      'page': pageName,
+      'content': ["Make this paragraph say what you want it to."]
+    })
+    Session.set("editing_para", p);
+    Meteor.flush(); // force DOM redraw, so we can focus the edit field
+    activateInput($("#para-textarea")); // XXX hacky - assumes only one such thing in page.
+  }
+})
+
+
 Template.newpage.events({
   'click': function(evt) {
     // this creates a paragraph containing a link to a page that doesn't exist.
