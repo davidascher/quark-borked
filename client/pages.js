@@ -255,7 +255,9 @@ Template.page.events({
   },
 
   'blur': function(evt) {
-alert('blur');
+    var para = $(evt.target).parent();
+    var textarea = para.find("textarea").val();
+    endParagraphEditing(this._id, this.index, textarea);
   },
 
   'keydown p.para': function(evt) {
