@@ -278,7 +278,7 @@ Template.page.events({
     endParagraphEditing(this._id, this.index, textarea);
   },
 
-  'keydown p.para': function(evt) {
+  'keydown .para': function(evt) {
     if (evt.which == 27) {
       endParagraphEditing(this._id, this.index, evt.target.value);
     }
