@@ -15,7 +15,7 @@ Template.main.events({
       alert('done');
     }
   },
-  'click': function(evt) {
+  'mousedown': function(evt) {
     console.log('click', evt, evt.target.id);
     if (evt.target.id == "root" && Session.get("editand")) {
       alert('done');
