@@ -27,6 +27,10 @@ p.para {
 	cursor: move; 
 }
 
+.clear {
+	clear: both;
+}
+
 .buttonbar {
 	padding-top: 2em;
 	display: block;
