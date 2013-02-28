@@ -8,9 +8,9 @@ p.para {
 
 .card {
 	max-width: 25em;
-	border: 1px solid grey20;
+	border: 1px solid red;
 	border-radius: 3px;
-	padding: .3em;
+	padding: 10px;
 	margin: 1px;
 	/*background: orange;*/
 }
