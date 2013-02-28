@@ -71,8 +71,8 @@ h3.page-name {
 	margin-left: 20px;
 }
 
-textarea {
-	width: 100%;
+textarea.editable {
+	width: 22em;
 }
 
 p.para {
