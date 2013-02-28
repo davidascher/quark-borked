@@ -137,7 +137,7 @@ Template.heart.events({
 
 Template.page.rendered = function() {
   console.log(this);
-  console.log($("#sortable").val());
+  console.log($("#sortable").text());
   // $("#sortable").sortable({ handle: ".drag-handle" });
 }
 
