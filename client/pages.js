@@ -115,6 +115,8 @@ Template.editablepagetitle.events({
   },
   'keydown #title-input': function(evt, tmpl) {
     if (evt.which == 13) {
+      evt.stopPropagation();
+      evt.preventDefault();
       endPagetitleEditing(evt, tmpl);
     }
   }
