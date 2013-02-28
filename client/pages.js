@@ -6,6 +6,7 @@
 
 Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
+Redirects = new Meteor.Collection("redirects");
 
 Template.newpara.events({
   'click': function(evt) {
