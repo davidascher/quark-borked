@@ -76,7 +76,7 @@ textarea.editable {
 	height: 10em;
 }
 
-p.para {
+.para {
 	float: left;
 	margin-left: 20px;
 	/*text-indent: -1.5em;*/
