@@ -187,6 +187,7 @@ function handleInternalLinkClick(evt) {
 };
 
 function fixupIndices() {
+  console.log('in fixupIndices');
   var pageName = Session.get("page_name");
   var paras = Paras.find({page: pageName}, {sort: {index: 1}});
   var index = 0;
