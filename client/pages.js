@@ -303,13 +303,9 @@ renderInternalLink = function(match, name) {
 
 Handlebars.registerHelper('linkify', function(content, options) {
   var original = content[0];
-  converter = new Showdown.converter();
-  console.log('original', original);
-  console.log('converter', converter);
+  converter = new Showdown.converter(); // XXX move this to some appropriate scope
   var html = converter.makeHtml(original);
-  console.log('html', html);
   var linkified = html.replace(/\[\[([^\]]+)\]\]/gi, renderInternalLink).replace(/\[(http.*?) (.*?)\]/gi, "<a class=\"external\" target=\"_blank\" href=\"$1\" title=\"$1\" rel=\"nofollow\">$2</a>");
-  console.log('linkified', linkified);
   return new Handlebars.SafeString(linkified);
 });
 
