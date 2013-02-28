@@ -57,9 +57,11 @@ span.pagetitle:hover {
 	/*clear:;*/
 }
 
+.right {
+	float: right;
+}
 p.para {
-	float:left;
-	margin-left: 1.5em;
+	/*margin-left: 1.5em;*/
 	/*text-indent: -1.5em;*/
 }
 .drag-handle, .done-handle {
