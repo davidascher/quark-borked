@@ -11,7 +11,7 @@ Redirects = new Meteor.Collection("redirects");
 Template.main.events({
   'keydown': function(evt) {
     console.log('keydown', evt.target.id);
-    if (Session.get("editand") && (evt.which == 27)) {
+    if (evt.target.id == "root" && Session.get("editand") && (evt.which == 27)) {
       alert('done');
     }
   },
