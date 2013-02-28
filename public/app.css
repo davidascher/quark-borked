@@ -7,10 +7,12 @@ p.para {
 }
 
 .paragraph-placeholder {
-	height: 1.2em; 
+	min-height: 1.2em; 
 	line-height: 1.2em;
-	width: 10em;
-	border: 1px #fff8b2;	
+	min-width: 10em;
+	background-color: #fff8b2;	
+	border: 1px dotted grey;
+	display: block;
 }
 .draggable .drag-handle {
 	cursor: move; 
