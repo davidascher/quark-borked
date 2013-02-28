@@ -322,7 +322,7 @@ var PagesRouter = Backbone.Router.extend({
 Router = new PagesRouter;
 
 function updateParagraphOrder(event, ui) {
-  console.log('in tweaking indices');
+  console.log('in tweaking indices', event.target);
   // build a new array items in the right order, and push them
   var rows = $(event.target).children('p');
   _.each(rows, function(element,index,list) {
