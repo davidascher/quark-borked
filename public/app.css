@@ -66,6 +66,11 @@ span.pagetitle:hover {
 .right {
 	float: right;
 }
+
+h3.page-name {
+	margin-left: 1.5em;
+}
+
 p.para {
 	float: left;
 	margin-left: 1.5em;
