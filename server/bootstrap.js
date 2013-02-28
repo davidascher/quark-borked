@@ -17,6 +17,7 @@ Meteor.startup(function () {
        ]
       }
     ];
+    Redirects.insert({'old_name': 'xxx', 'new_name': 'xxy'})
 
     for (var i = 0; i < data.length; i++) {
       var timestamp = (new Date()).getTime();
