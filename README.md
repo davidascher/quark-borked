@@ -7,8 +7,12 @@ Dones:
  x persist reorderings through index tweakings
 
 Todos:
- - think about urls, routing, etc.
+
  - import a real corpus (my recipes?)
+ - get bookmark's contents in the mix
+ - focus on search
+
+ - think about urls, routing, etc.
  - think about search interactions, curating search results
  - make personal:
  	- when not logged in, can't edit?
