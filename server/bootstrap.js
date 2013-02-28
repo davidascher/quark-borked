@@ -1,3 +1,4 @@
+fs = require('fs');
 // if the database is empty on server start, create some sample data.
 var bootstrap_data_path = './recipes';
 
