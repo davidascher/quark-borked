@@ -322,11 +322,10 @@ var PagesRouter = Backbone.Router.extend({
 Router = new PagesRouter;
 
 function updateParagraphOrder(event, ui) {
-  console.log('in tweaking indices', $(event.target).find('p'));
   // build a new array items in the right order, and push them
+  // stolen from https://github.com/sdossick/sortable-meteor
   var rows = $(event.target).find('p');
   _.each(rows, function(element,index,list) {
-    console.log(element. index, list);
     var id = $(element).data('id');
     Paras.update({_id: id}, {$set: {index: index}});
   });
@@ -334,10 +333,6 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  // $( "#sortable" ).sortable({ 
-  //   handle: ".drag-handle" ,
-  //   update: updateParagraphOrder
-  // });
   $( ".drag-handle" ).disableSelection();
   $( ".para" ).enableSelection();
 });
