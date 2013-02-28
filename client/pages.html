@@ -66,13 +66,13 @@
     <span class="drag-handle">¶</span>
     <!-- <i class="icon-align-justify drag-handle"></i> -->
     <div>
-      <p class="para" data-id='{{_id}}' data-index='{{index}}'>
+      <div class="para" data-id='{{_id}}' data-index='{{index}}'>
         {{#if editing}}
             <textarea id="para-textarea" class='editable'>{{this.content}}</textarea>
             <i class="icon-remove-circle done-handle"></i>
         {{else}}<div class='editable'>{{#linkify this.content}}{{/linkify}}</div>
         {{/if}}
-      </p>
+      </div>
     </div>
     <div class="clear"/>
   </div>
