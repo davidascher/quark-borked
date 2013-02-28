@@ -135,6 +135,10 @@ Template.heart.events({
   }
 })
 
+Template.page.rendered = function() {
+  $("#sortable").sortable({ handle: ".drag-handle" });
+}
+
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
   if (!pageName) return '';
@@ -241,6 +245,7 @@ var startEditParagraph = function(para, tmpl) {
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput(tmpl.find("#para-textarea"));
 }
+
 
 Template.page.events({
   'click .edit-handle': function(evt, tmpl) {
