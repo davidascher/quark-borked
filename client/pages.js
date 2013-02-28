@@ -323,8 +323,8 @@ Router = new PagesRouter;
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
   $( ".draggable" ).draggable({ handle: ".drag-handle" });
-  $( ".draggable .drag-handle" ).disableSelection();
-  $( ".draggable .para" ).enableSelection();
+  $( ".drag-handle" ).disableSelection();
+  // $( ".draggable .para" ).enableSelection();
 });
 
 // Subscribe to 'pages' collection on startup.
