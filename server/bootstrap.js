@@ -1,4 +1,6 @@
 // if the database is empty on server start, create some sample data.
+var bootstrap_data_path = './recipes';
+
 Meteor.startup(function () {
   if (Pages.find().count() === 0) {
     var data = [
@@ -27,7 +29,15 @@ Meteor.startup(function () {
       }
     }
     // load recipes from disk
+    if (fs.existsSync(bootstrap_data_path)) {
+      fs.readdirSync(bootstrap_data_path, function(err, files) {
+        for (var k = 0; k < files.length; k++) {
+          var filepath = path.join(bootstrap_data_path, files[k]);
+          console.log(filepath);
+          var app_html = fs.readFileSync(filepath, 'utf8');
+        }
 
-
+      })
+    }
   }
 });
