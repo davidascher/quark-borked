@@ -33,14 +33,16 @@ Meteor.startup(function () {
     Meteor._debug("looking at " + bootstrap_data_path);
     // load recipes from disk
     if (fs.existsSync(bootstrap_data_path)) {
+      Meteor._debug("exists!");
       fs.readdirSync(bootstrap_data_path, function(err, files) {
         for (var k = 0; k < files.length; k++) {
           var filepath = path.join(bootstrap_data_path, files[k]);
           Meteor._debug(filepath);
           var app_html = fs.readFileSync(filepath, 'utf8');
         }
-
       })
+    } else {
+      Meteor._debug("directory doesn't exist");
     }
   }
 });
