@@ -111,9 +111,11 @@ Template.page.currentPage = function () {
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
+    Session.set("redirected_from", pageName);
     Session.set("page_name", redirect.new_name);
     return redirect.new_name;
   } else {
+    Session.set("redirected_from", null);
     return pageName.trim();
   }
   return '';
