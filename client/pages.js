@@ -10,11 +10,13 @@ Redirects = new Meteor.Collection("redirects");
 
 Template.main.events({
   'keydown body': function(evt) {
+    console.log('keydown', evt);
     if (Session.get("editand") && (evt.which == 27)) {
       alert('done');
     }
   },
   'click body': function(evt) {
+    console.log('click', evt);
     if (Session.get("editand")) {
       alert('done');
     }
