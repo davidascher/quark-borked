@@ -7,7 +7,7 @@
 Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
-
+$( ".draggable" ).draggable({ handle: ".drag-handle" });
 // Template.main.events({
 //   'keydown': function(evt) {
 //     console.log('keydown', evt.target.id);
