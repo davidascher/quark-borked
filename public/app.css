@@ -82,7 +82,7 @@ p.para {
 }
 .edit-handle {
 	padding-left: 1em;
-	width: 12px;
+	width: .3em;
 	opacity: .1;
 }
 
