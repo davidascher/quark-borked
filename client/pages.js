@@ -215,6 +215,7 @@ function endParagraphEditing(id, index, contents) {
     }
   }
   fixupIndices();
+  Session.set("editand", null);
   Session.set("editing_para", null);
 
   confirmPageExists(pageName);
