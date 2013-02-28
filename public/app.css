@@ -11,6 +11,7 @@ p.para {
 	border: 1px solid grey20;
 	border-radius: 3px;
 	padding: .3em;
+	background: orange;
 }
 
 .paragraph-placeholder {
