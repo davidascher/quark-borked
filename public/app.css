@@ -58,7 +58,7 @@ span.pagetitle:hover {
 }
 
 p.para {
-	float:right;
+	float:left;
 	margin-left: 1.5em;
 	/*text-indent: -1.5em;*/
 }
