@@ -187,7 +187,6 @@ function handleInternalLinkClick(evt) {
 };
 
 function fixupIndices() {
-  console.log('in fixupIndices');
   var pageName = Session.get("page_name");
   var paras = Paras.find({page: pageName}, {sort: {index: 1}});
   var index = 0;
@@ -322,7 +321,23 @@ Meteor.startup(function () {
   $( "#sortable" ).sortable({ handle: ".drag-handle" });
   $( ".drag-handle" ).disableSelection();
   $( ".para" ).enableSelection();
-  $( "#sortable" ).on( "sortupdate", fixupIndices);
+  $( "#sortable" ).on( "sortupdate", function( event, ui ) {
+    console.log('in tweaking indices');
+    // build a new array items in the right order, and push them
+    var rows = $(event.target).children('p');
+    _.each(rows, function(element,index,list) {
+      var id = $(element).data('id');
+      Paras.update({_id: id}, {$set: {index: index}});
+    });
+
+    var pageName = Session.get("page_name");
+    var paras = Paras.find({page: pageName}, {sort: {index: 1}});
+    var index = 0;
+    paras.forEach(function(para) {
+      Paras.update(para._id, {$set: {index: index}});
+      index++;
+    });
+  } );
 });
 
 // Subscribe to 'pages' collection on startup.
