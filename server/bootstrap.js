@@ -1,6 +1,7 @@
 var require = __meteor_bootstrap__.require;
 var fs = require('fs');
 var path = require('path');
+var stats = fs.Stats;
 // if the database is empty on server start, create some sample data.
 var bootstrap_data_path = './recipes';
 
