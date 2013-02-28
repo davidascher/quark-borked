@@ -14,7 +14,7 @@ Template.main.events({
       alert('done');
     }
   },
-  'mousedown body': function(evt) {
+  'click body': function(evt) {
     if (Session.get("editand")) {
       alert('done');
     }
