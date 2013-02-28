@@ -254,7 +254,7 @@ Template.page.events({
     // Session.set("editing_para", this._id);
   },
 
-  'blur p.para': function(evt) {
+  'blur': function(evt) {
 alert('blur');
   },
 
