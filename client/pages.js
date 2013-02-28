@@ -118,6 +118,10 @@ Template.page.currentPage = function () {
     if (redirect) {
       Session.set("page_name", redirect.new_name)
       return redirect.new_name;
+    } else {
+      // create new page.
+      var timestamp = (new Date()).getTime();
+      Pages.insert({name: pageName, mtime: timestamp});
     }
   }
   return '';
