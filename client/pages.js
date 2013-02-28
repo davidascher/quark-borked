@@ -7,7 +7,6 @@
 Pages = new Meteor.Collection("pages");
 Paras = new Meteor.Collection("paras");
 Redirects = new Meteor.Collection("redirects");
-var showdown = new Showdown.converter();
 
 Template.newpara.events({
   'click': function(evt) {
@@ -337,6 +336,7 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
+  var showdown = new Showdown.converter();
 });
 
 // Subscribe to 'pages' collection on startup.
