@@ -41,7 +41,7 @@ span.pagetitle:hover {
 /*#sortable div { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }*/
 .drag-handle { 
 	position: absolute; 
-	margin-left: -1.3em; 
+	margin-right: 1.3em; 
 	min-width: 1.3em; 
 	width: 1.3em;
 }
