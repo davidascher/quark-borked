@@ -108,11 +108,15 @@ Template.heart.events({
 
 Template.page.currentPage = function () {
   var pageName = Session.get("page_name");
-  if (pageName) return pageName.trim();
-  // look for a redirect
-  var redirect = Redirects.findOne({old_name: pageName});
-  if (redirect) {
-    Session.set("page_name", redirect.new_name)
+  page = Pages.findOne({name: pageName});
+  if (page) {
+    if (pageName) return pageName.trim();
+  } else {
+    // look for a redirect
+    var redirect = Redirects.findOne({old_name: pageName});
+    if (redirect) {
+      Session.set("page_name", redirect.new_name)
+    }
   }
 };
 
