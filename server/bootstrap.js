@@ -47,7 +47,7 @@ Meteor.startup(function () {
           page_name = page_name.split('-').join(' ');
           Meteor._debug(k + ': ' + page_name);
           var contents = fs.readFileSync(filepath, 'utf8');
-          var subparas = contents.split(/\n+/);
+          var subparas = contents.split(/\n\n+/);
           var timestamp = (new Date()).getTime();
           Pages.insert({name: page_name, mtime: timestamp});
           for (var j = 0; j < subparas.length; j++) {
