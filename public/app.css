@@ -73,10 +73,6 @@ p.para {
 }
 .drag-handle, .done-handle {
 	vertical-align: top;
-	opacity: 0;
-}
-
-.drag-handle < .para:hover  {
 	opacity: .1;
 }
 
