@@ -122,6 +122,7 @@ Template.page.currentPage = function () {
       // create new page.
       var timestamp = (new Date()).getTime();
       Pages.insert({name: pageName, mtime: timestamp});
+      return pageName.trim();
     }
   }
   return '';
