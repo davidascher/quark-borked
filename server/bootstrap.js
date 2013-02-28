@@ -21,15 +21,15 @@ Meteor.startup(function () {
        ]
       }
     ];
-    Redirects.insert({'old_name': 'xxx', 'new_name': 'xxy'})
+    // Redirects.insert({'old_name': 'xxx', 'new_name': 'xxy'})
 
-    for (var i = 0; i < data.length; i++) {
-      var timestamp = (new Date()).getTime();
-      var list_id = Pages.insert({name: data[i].name, mtime: timestamp});
-      for (var j = 0; j < data[i].contents.length; j++) {
-        Paras.insert({index: j, page: data[i].name, content: data[i].contents[j]})
-      }
-    }
+    // for (var i = 0; i < data.length; i++) {
+    //   var timestamp = (new Date()).getTime();
+    //   var list_id = Pages.insert({name: data[i].name, mtime: timestamp});
+    //   for (var j = 0; j < data[i].contents.length; j++) {
+    //     Paras.insert({index: j, page: data[i].name, content: data[i].contents[j]})
+    //   }
+    // }
     Meteor._debug("looking at " + bootstrap_data_path);
     // load recipes from disk
     if (fs.existsSync(bootstrap_data_path)) {
