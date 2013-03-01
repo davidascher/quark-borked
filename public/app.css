@@ -6,6 +6,10 @@ body {
 	font-family: 'Droid Sans', sans-serif;
 }
 
+button, input, select, textarea {
+	font-family: 'Droid Sans', sans-serif;
+}
+
 .main {
 	padding-top: 2em;
 }
