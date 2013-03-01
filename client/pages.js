@@ -11,7 +11,7 @@ var showdown;
 
 Template.newpara.events({
   'click': function(evt) {
-    var pageName = Session.get("page_name");
+    var pageName = Session.get("pageId");
     var index = Paras.find({page: pageName}).count() + 1;
     var p = Paras.insert({
       index: index,
@@ -26,7 +26,7 @@ Template.newpara.events({
 
 Template.newlink.events({
   'click': function(evt) {
-    var pageName = Session.get("page_name");
+    var pageName = Session.get("pageId");
     var index = Paras.find({page: pageName}).count() + 1;
     var p = Paras.insert({
       index: index,
@@ -44,7 +44,7 @@ Template.newpage.events({
   'click': function(evt) {
     // this creates a paragraph containing a link to a page that doesn't exist.
     // and inserts it at the end of the current page.
-    var pageName = Session.get("page_name");
+    var pageName = Session.get("pageId");
     var names = ['new page', 'another new page', 'a random new page'];
     var newpage = null;
     var newpagename = '';
@@ -85,14 +85,14 @@ var endPagetitleEditing = function(evt, tmpl) {
   evt.stopPropagation();
   evt.preventDefault();
   Session.set("editing_title", null);
-  var oldpagename = Session.get('page_name');
+  var oldpagename = Session.get('pageId');
   var newpagename = tmpl.find("#title-input").value;
   var page = Pages.findOne({name: oldpagename});
   if (!page) return;
   var paras = Paras.find();
   Pages.update(page._id, {$set: {name: newpagename}})
   updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
-  Session.set("page_name", newpagename);
+  Session.set("pageId", newpagename);
   Session.set("editand", null);
   // register a redirect serverside
   Redirects.insert({old_name: oldpagename, new_name: newpagename})
@@ -116,7 +116,7 @@ Template.editablepagetitle.events({
 })
 
 Template.heart.starred = function() {
-  var pageName = Session.get("page_name");
+  var pageName = Session.get("pageId");
   if (!pageName) return false;
   var page = Pages.findOne({'name': pageName});
   if (!page) return false;
@@ -125,7 +125,7 @@ Template.heart.starred = function() {
 
 Template.heart.events({
   'click i.heart': function(evt, tmpl) {
-    var page = Pages.findOne({'name': Session.get("page_name")}, {sort: {name: 1}});
+    var page = Pages.findOne({'name': Session.get("pageId")}, {sort: {name: 1}});
     Pages.update(page._id, {$set: {starred: !page.starred}})
   }
 })
@@ -140,7 +140,7 @@ Template.page.rendered = function() {
 }
 
 Template.page.currentPage = function () {
-  id = Session.get("page_name");
+  id = Session.get("pageId");
   if (! id) {
     console.log('no id set yet');
     return;
@@ -154,7 +154,7 @@ Template.page.currentPage = function () {
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
-    Session.set("page_name", redirect.new_name);
+    Session.set("pageId", redirect.new_name);
     // Session.set("redirected_from", pageName);
     return redirect.new_name;
   } else {
@@ -165,7 +165,7 @@ Template.page.currentPage = function () {
 };
 
 Template.page.paras = function() {
-	var pageName = Session.get("page_name");
+	var pageName = Session.get("pageId");
 	var paras = Paras.find({"page": pageName}, {sort: {index: 1}});
   return paras
 }
@@ -199,11 +199,11 @@ function handleInternalLinkClick(evt) {
   evt.stopPropagation();
   evt.preventDefault();
   var target = evt.target.getAttribute('data');
-  Session.set("page_name", pageNameToId(unescape(target)));
+  Session.set("pageId", pageNameToId(unescape(target)));
 };
 
 function fixupIndices() {
-  var pageName = Session.get("page_name");
+  var pageName = Session.get("pageId");
   var paras = Paras.find({page: pageName}, {sort: {index: 1}});
   var index = 0;
   paras.forEach(function(para) {
@@ -215,7 +215,7 @@ function fixupIndices() {
 function endParagraphEditing(id, index, contents) {
   // trim leading and trailing whitespace
   var contents = $.trim(contents);
-  var pageName = Session.get("page_name");
+  var pageName = Session.get("pageId");
   // if it's empty, get rid of it.
   if (contents.length == 0) {
     Paras.remove(id);
@@ -326,17 +326,17 @@ var pageNameToId = function(pageName) {
 
 var PagesRouter = Backbone.Router.extend({
   routes: {
-    ":page_name": "main",
+    ":pageId": "main",
     "": "index"
   },
   index: function() {
     console.log("in PagesRouter:index");
     id = "Welcome"; // special cased in bootstrap code pageNameToId("Welcome");
-    Session.set("page_name", id);
+    Session.set("pageId", id);
   },
-  main: function (page_name) {
-    console.log("in PagesRouter:main", page_name);
-    Session.set("page_name", pageNameToId(unescape(page_name)));
+  main: function (pageId) {
+    console.log("in PagesRouter:main", pageId);
+    Session.set("pageId", pageNameToId(unescape(pageId)));
   },
   setPage: function (list_id) {
     this.navigate(list_id, true);
@@ -360,7 +360,7 @@ Meteor.startup(function () {
 });
 
 Meteor.subscribe('pages', function () {
-  if (!Session.get('page_name')) {
+  if (!Session.get('pageId')) {
     var page = Pages.findOne({}, {sort: {name: 1}});
     if (page)
       Router.setList(page._id);
@@ -371,7 +371,7 @@ Meteor.subscribe('pages', function () {
 // Select a list once data has arrived.
 // Meteor.subscribe('pages', function () {
 //   console.log("subscription started");
-//   if (!Session.get('page_name')) {
+//   if (!Session.get('pageId')) {
 //     console.log("need to find a page");
 //     var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
 //     if (page) {
