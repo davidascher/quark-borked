@@ -32,6 +32,9 @@ Todos:
 
 	 - mock up social search & central search
 
+
+- tagging
+
 - consider looking for a large github hosted markdown content repo for scale testing
 
   - make personal:
