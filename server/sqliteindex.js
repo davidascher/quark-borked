@@ -7,12 +7,11 @@ var db;
 var searchForATerm = Fiber(function(term) {
 	Meteor._debug("starting fiber, db=", db);
   	// SQL injection prevention code goes here. =()
-    	Meteor._debug("got rows from FTS:", rows);
-    	if (rows)
-			Fiber.yield(rows);
-		else 
-			Fiber.yield('Nope.');
-	});
+	Meteor._debug("got rows from FTS:", rows);
+	if (rows)
+		Fiber.yield(rows);
+	else 
+		Fiber.yield('Nope.');
 });
 
 Meteor.methods({
