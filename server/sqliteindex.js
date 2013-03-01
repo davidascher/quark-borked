@@ -22,7 +22,7 @@ function searchForATerm() {
 Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
-  	return searchForATerm(term);
+  	return searchForATerm(term)();
     // 	Fiber.yield(rows);
     // });
     // if (you want to throw an error)
