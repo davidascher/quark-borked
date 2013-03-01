@@ -365,12 +365,12 @@ Meteor.startup(function () {
   $(".searchresults .searchcard").draggable({stack: ".searchresults .searchcard"});
   $( "#trash" ).droppable({
     accept: ".searchcard",
-    activeClass: "ui-state-hover",
+    activeClass: "activated",
     drop: function(event, ui) {
-      $(this)
-      .addClass("ui-state-highlight")
-      .find("p")
-      .html("Dropped!");
+      // $(this)
+      // .addClass("ui-state-highlight")
+      // .find("p")
+      // .html("Dropped!");
     }
   });
 });
