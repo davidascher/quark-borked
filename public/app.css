@@ -28,7 +28,7 @@ div.para {
 }
 
 .searchcard:hover {
-	cursor: move;
+	cursor: hand;
 }
 
 .trash {
