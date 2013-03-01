@@ -131,7 +131,7 @@ Template.heart.starred = function() {
 
 Template.heart.events({
   'click i.heart': function(evt, tmpl) {
-    var page = Pages.findOne({'name': Session.get("pageId")}, {sort: {name: 1}});
+    var page = Pages.findOne(Session.get("pageId"), {sort: {name: 1}});
     Pages.update(page._id, {$set: {starred: !page.starred}})
   }
 })
