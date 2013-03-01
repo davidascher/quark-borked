@@ -6,7 +6,7 @@ var db;
 
 function searchForATerm() {
 	var fiber = Fiber(function() {
-		Meteor._debug("starting fiber");
+		Meteor._debug("starting fiber, db=", db);
 	  	// SQL injection prevention code goes here. =()
 		db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", function(err, rows) {
 	    	Meteor._debug("got rows from FTS:", rows);
