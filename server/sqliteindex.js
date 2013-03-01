@@ -31,13 +31,8 @@ Meteor.methods({
   	var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
   	Meteor._debug("arg =", arg);
   	rows = Future.wrap(db.run)(arg);
+  	Meteor._debug("rows", rows);
 	return rows;
-
-    // 	Fiber.yield(rows);
-    // });
-    // if (you want to throw an error)
-    //   throw new Meteor.Error(404, "Can't find my pants");
-    // return "some return value";
   },
 
   bar: function () {
