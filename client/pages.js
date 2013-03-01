@@ -275,7 +275,6 @@ Template.page.events({
   },
 
   'dblclick .editable': function (evt, tmpl) {
-    return;
     evt.stopPropagation();
     evt.preventDefault();
     startEditParagraph(this, tmpl)
@@ -283,6 +282,7 @@ Template.page.events({
   },
 
   'blur': function(evt) {
+    return;
     console.log("blur", evt.target)
     var para = $(evt.target).parent();
     var textarea = para.find("textarea").val();
