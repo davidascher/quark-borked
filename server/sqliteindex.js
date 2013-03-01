@@ -10,14 +10,8 @@ Meteor.methods({
   search: function (term) {
     // Set up a future
     var fut = new Future();
-
     var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "';";
-    Meteor._debug('about to db.run', arg);
     db.all(arg, function(err, rows) {
-    	if (err) {
-	    	Meteor._debug('got err:', err);
-    	}
-    	Meteor._debug('got rows:', rows);
     	fut.ret(rows);
     })
     // Wait for async to finish before returning
