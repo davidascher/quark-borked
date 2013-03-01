@@ -63,6 +63,11 @@ Template.newpage.events({
     }
     var timestamp = (new Date()).getTime();
     var newpageId = Pages.insert({name: newpagename, mtime: timestamp});
+    Paras.insert({
+      index: 0,
+      'page': newpageId,
+      'content': ["This is an empty page. Very sad."]
+    })
     var index = Paras.find({page: pageId}).count() + 1;
     Paras.insert({
       index: index,
