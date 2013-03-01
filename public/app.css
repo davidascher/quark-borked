@@ -3,6 +3,7 @@
 body {
 	background: url(/cream_dust/cream_dust.png) repeat 0 0;
 	color: rgb(14, 32, 59);
+	font-family: 'Droid Sans', sans-serif;
 }
 
 .main {
