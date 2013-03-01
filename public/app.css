@@ -34,11 +34,11 @@ div.para {
 	border-radius: 3px;
 	margin: 5px;
 	padding: 5px;
-	box-shadow:         inset 0 0 0px #000000;	
+	box-shadow:         inset 0 0 0px #000;	
 }
 
 .dropzone.activated {
-   box-shadow:         inset 0 0 10px #000000;	
+   box-shadow:         inset 0 0 4px #aaa;	
 }
 
 .searchresults {
