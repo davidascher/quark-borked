@@ -7,9 +7,9 @@ var db;
 
 
 Meteor.startup(function () {
-	db = new sqlite3.Database('webpages.sqlite3', createTable);
+	db = new sqlite3.Database('paragraphs.sqlite3', createTable);
 	function createTable() {
-	    console.log("createTable webpages");
+	    console.log("createTable paragraphs");
 	    db.run("CREATE VIRTUAL TABLE IF NOT EXISTS webpages USING fts4(key, data);", mongoOpen)
 	}
 }
@@ -17,7 +17,7 @@ Meteor.startup(function () {
 var onParaChange = {
 	added: function(id, fields) {
 		Meteor._debug("added", id, fields);
-		db.run("INSERT INTO webpages VALUES ($key, $data)", {
+		db.run("INSERT INTO paragraphs VALUES ($key, $data)", {
 			$key: id,
 			$data: fields['content']
 		})
