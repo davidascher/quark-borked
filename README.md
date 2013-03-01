@@ -48,6 +48,7 @@ Todos:
 Technical debt:
 	- redirects get scanned periodically to fix links from internal pages
 	- (someday: redirects get broadcast to peers)
+	- is it possible to do the urlgather code inside of meteor? (single process would be better!)
 
 Open questions
 	- show redirects?
