@@ -52,8 +52,7 @@ Template.newpage.events({
     while (newpage != null) {
       newpage = Pages.findOne({name: newpagename});
       if (!newpage) break;
-      console.log("looked for page called", newpagename, "found", newpage);
-      if (newpage) i++;
+      i++;
       if (i >= names.length) {
         newpagename = 'new page ' + (i-2).toString(); // so they start from 1
       } else {
@@ -97,13 +96,11 @@ var endPagetitleEditing = function(evt, tmpl) {
   var pageId = Session.get('pageId')
   var page = Pages.findOne(pageId);
   var oldpagename = page.name;
-  console.log("DONE PAGE EDITING, PAGE is", page);
   if (!page) return;
   var newpagename = tmpl.find("#title-input").value;
   Pages.update(page._id, {$set: {name: newpagename}})
   Session.set("editand", null);
   // register a redirect serverside
-  console.log("regisering a redirect", oldpagename, page._id);
   Redirects.insert({old_name: oldpagename, original_id: page._id})
 }
 
@@ -151,10 +148,8 @@ Template.page.rendered = function() {
 Template.page.currentPage = function () {
   id = Session.get("pageId");
   if (! id) {
-    console.log('no id set yet');
     return;
   }
-  console.log("id", id, "page", Pages.findOne(id));
   var page = Pages.findOne(id);
   if (!page) return;
   var pageName = page.name;
@@ -336,12 +331,10 @@ var PagesRouter = Backbone.Router.extend({
     "": "index"
   },
   index: function() {
-    console.log("in PagesRouter:index");
     id = "Welcome"; // special cased in bootstrap code pageNameToId("Welcome");
     Session.set("pageId", id);
   },
   main: function (pageId) {
-    console.log("in PagesRouter:main", pageId);
     Session.set("pageId", pageNameToId(unescape(pageId)));
   },
   setPage: function (list_id) {
@@ -367,22 +360,10 @@ Meteor.startup(function () {
 
 Meteor.subscribe('pages', function () {
   if (!Session.get('pageId')) {
+    // not clear if this does anything
     var page = Pages.findOne({}, {sort: {name: 1}});
     if (page)
       Router.setList(page._id);
   }
 });
 
-// Subscribe to 'pages' collection on startup.
-// Select a list once data has arrived.
-// Meteor.subscribe('pages', function () {
-//   console.log("subscription started");
-//   if (!Session.get('pageId')) {
-//     console.log("need to find a page");
-//     var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
-//     if (page) {
-//       console.log("Choosing a page:", page);
-//       Router.setPage(page.name);
-//     }
-//   }
-// });
