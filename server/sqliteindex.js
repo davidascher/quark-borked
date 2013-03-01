@@ -6,10 +6,8 @@ var db;
 
 Meteor.startup(function () {
 	db = new sqlite3.Database('paragraphs.sqlite3', createTable);
-	function createTable() {
-	    console.log("createTable paragraphs");
-	    db.run("CREATE VIRTUAL TABLE IF NOT EXISTS webpages USING fts4(key, data);", mongoOpen)
-	}
+    console.log("createTable paragraphs");
+    db.run("CREATE VIRTUAL TABLE IF NOT EXISTS webpages USING fts4(key, data);", mongoOpen)
 });
 
 var onParaChange = {
