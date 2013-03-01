@@ -362,7 +362,7 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
-  $(".draggable").draggable(".searchresults");
+  $(".searchresults").draggable(".searchresults");
 });
 
 Meteor.subscribe('pages', function () {
