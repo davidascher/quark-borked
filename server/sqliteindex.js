@@ -30,13 +30,13 @@ var onParaChange = {
 //   }).run();
 // }
 
-db = new sqlite3.Database('paragraphs.sqlite3', function() {
-	console.log("DB = ", db);
-	console.log("createTable paragraphs");
-	db.run("CREATE VIRTUAL TABLE paragraphs USING fts4(key, data);", function() {});
-});
-Meteor.startup(function () {
-	// setupSqlite();
-	allparas.observeChanges(onParaChange)
-});
+// db = new sqlite3.Database('paragraphs.sqlite3', function() {
+// 	console.log("DB = ", db);
+// 	console.log("createTable paragraphs");
+// 	db.run("CREATE VIRTUAL TABLE paragraphs USING fts4(key, data);", function() {});
+// });
+// Meteor.startup(function () {
+// 	// setupSqlite();
+// 	allparas.observeChanges(onParaChange)
+// });
 
