@@ -51,6 +51,7 @@ Template.newpage.events({
     var newpagename = names[i];
     while (!newpage) {
       newpage = Pages.findOne({name: newpagename});
+      console.log("looked for page called", newpagename, "found", newpage);
       if (newpage) i++;
       if (i > names.length) {
         newpagename = 'new page ' + i.toString()
