@@ -11,6 +11,11 @@ Microfeatures
 
 Todos:
 
+- friday: focus on UX
+  - going from search results to curated list
+    - drag from search panes onto current pane.
+    - merge links with paragraphs?
+
  - focus on search
 	 x import a real corpus (my recipes?)
 	 	x find markdown->html clientside renderer (coauthor code?)
