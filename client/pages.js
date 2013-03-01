@@ -156,7 +156,7 @@ Template.page.currentPage = function () {
   if (!page) return;
   var pageName = page.name;
   if (!pageName) return '';
-  return pageName;
+  return pageName.trim();
 };
 
 Template.page.paras = function() {
@@ -200,15 +200,9 @@ function handleInternalLinkClick(evt) {
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
     Session.set("pageId", redirect.id);
-    // Session.set("redirected_from", pageName);
-    return redirect.new_name;
   } else {
-    // Session.set("redirected_from", null);
-    return pageName.trim();
+    Session.set("pageId", pageNameToId(unescape(target)));
   }
-  return '';
-
-  Session.set("pageId", pageNameToId(unescape(target)));
 };
 
 function fixupIndices() {
