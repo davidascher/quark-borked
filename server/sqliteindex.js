@@ -14,6 +14,9 @@ Meteor.methods({
     var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
     Meteor._debug('about to db.run');
     db.run(arg, function(err, rows) {
+    	if (err) {
+	    	Meteor._debug('got err:', err);
+    	}
     	Meteor._debug('got rows:', rows);
     	fut.ret(rows);
     })
