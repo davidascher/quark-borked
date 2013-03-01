@@ -11,7 +11,7 @@ Meteor.methods({
     // Set up a future
     var fut = new Future();
 
-    var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
+    var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "';";
     Meteor._debug('about to db.run');
     db.run(arg, function(err, rows) {
     	if (err) {
