@@ -366,15 +366,13 @@ Meteor.startup(function () {
   $( "#trash" ).droppable({
     accept: ".searchcard",
     activeClass: "ui-state-hover",
-    drop: function( event, ui ) {
-    $( this )
-    .addClass( "ui-state-highlight" )
-    .find( "p" )
-    .html( "Dropped!" );
+    drop: function(event, ui) {
+      $(this)
+      .addClass("ui-state-highlight")
+      .find("p")
+      .html("Dropped!");
     }
   });
-
-
 });
 
 Meteor.subscribe('pages', function () {
