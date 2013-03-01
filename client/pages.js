@@ -96,6 +96,7 @@ var endPagetitleEditing = function(evt, tmpl) {
   Session.set("editing_title", null);
   var pageId = Session.get('pageId')
   var page = Pages.findOne(pageId);
+  console.log("DONE PAGE EDITING, PAGE is", page);
   if (!page) return;
   var newpagename = tmpl.find("#title-input").value;
   Pages.update(page._id, {$set: {name: newpagename}})
