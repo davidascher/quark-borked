@@ -6,10 +6,14 @@ var db;
 
 function searchForATerm() {
 	var fiber = Fiber(function() {
+		Meteor._
 	  	// SQL injection prevention code goes here. =()
 		db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", function(err, rows) {
 	    	Meteor._debug(rows);
-			Fiber.yield(rows);
+	    	if (rows)
+				Fiber.yield(rows);
+			else 
+				Fiber.yield('Nope.');
 		});
 	});
 	return fiber.run.bind(fiber);
