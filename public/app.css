@@ -23,11 +23,9 @@ div.para {
 	/*max-width: 20em;*/
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	padding: .2em 1em;
+	/*padding: .2em 1em;*/
 	margin-bottom: 1em;
-/*	margin-left: .5em;
-	margin-right: .5em;
-*/}
+}
 
 .searchcard > h3 {
 	font-size: medium;
