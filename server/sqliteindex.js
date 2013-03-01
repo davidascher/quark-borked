@@ -10,7 +10,7 @@ Meteor.startup(function () {
 	    console.log("createTable paragraphs");
 	    db.run("CREATE VIRTUAL TABLE IF NOT EXISTS webpages USING fts4(key, data);", mongoOpen)
 	}
-}
+});
 
 var onParaChange = {
 	added: function(id, fields) {
