@@ -362,6 +362,7 @@ Meteor.startup(function () {
 // Subscribe to 'pages' collection on startup.
 // Select a list once data has arrived.
 Meteor.subscribe('pages', function () {
+  console.log("subscription started");
   if (!Session.get('page_name')) {
     console.log("need to find a page");
     var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
