@@ -101,7 +101,7 @@ var endPagetitleEditing = function(evt, tmpl) {
   Pages.update(page._id, {$set: {name: newpagename}})
   Session.set("editand", null);
   // register a redirect serverside
-  Redirects.insert({old_name: oldpagename, id: page._id})
+  Redirects.insert({old_name: oldpagename, new_id: page._id})
 }
 
 Template.editablepagetitle.events({
