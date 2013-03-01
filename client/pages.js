@@ -60,7 +60,6 @@ Template.newpage.events({
         newpagename = names[i];
       }
       newpage = Pages.findOne({name: newpagename});
-      console.log("newpage is ", newpage, "looping?");
     }
     var timestamp = (new Date()).getTime();
     var newpageId = Pages.insert({name: newpagename, mtime: timestamp});
