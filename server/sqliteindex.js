@@ -2,7 +2,7 @@
 
 var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
-var Future = require('fibers/future');
+var Future = require('fibers/future'), wait = Future.wait;
 var db;
 
 // var searchForATerm = Fiber(function(rows) {
