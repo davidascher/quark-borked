@@ -25,14 +25,10 @@ var db;
 //   var ret = Future.wrap(someAsyncFunction)(arg);
 //   doSomethingWith(ret);
 
-function fts(term, cb) {
-	db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", cb);
-}
-
 Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
-  	rows = Future.wrap(fts).wait();
+  	rows = Future.wrap(db.run)("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'");
 	return rows;
 
     // 	Fiber.yield(rows);
