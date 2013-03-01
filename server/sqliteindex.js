@@ -4,8 +4,6 @@ var allparas = Paras.find();
 var db;
 
 
-
-
 Meteor.startup(function () {
 	db = new sqlite3.Database('paragraphs.sqlite3', createTable);
 	function createTable() {
