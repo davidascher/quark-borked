@@ -277,7 +277,7 @@ Template.page.events({
   'dblclick .editable': function (evt, tmpl) {
     evt.stopPropagation();
     evt.preventDefault();
-    startEditParagraph(this, tmpl)
+    //startEditParagraph(this, tmpl)
     // Session.set("editing_para", this._id);
   },
 
