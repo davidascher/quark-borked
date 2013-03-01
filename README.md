@@ -20,6 +20,7 @@ Todos:
 
 - friday: focus on UX
   - Pages should have a type: page, link, image, json, code?
+  - search endpoint returns page IDs
   - going from search results to curated list
     - drag from search panes onto current pane.
     - merge links with paragraphs?
