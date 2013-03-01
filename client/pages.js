@@ -140,7 +140,9 @@ Template.page.rendered = function() {
 }
 
 Template.page.currentPage = function () {
-  var pageName = Pages.findOne({_id: Session.get("page_name")}).name;
+  id = Session.get("page_name");
+  var page = Pages.findOne({_id: id});
+  var pageName = page.name;
   if (!pageName) return '';
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
