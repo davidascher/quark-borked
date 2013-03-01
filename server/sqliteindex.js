@@ -17,7 +17,7 @@ var onParaChange = {
 		Meteor._debug("added", id, fields);
 		db.run("INSERT INTO paragraphs VALUES ($key, $data)", {
 			$key: id,
-			$data: fields['content']
+			$data: fields['content'][0]
 		})
 	},
 	changed: function(id, fields) {
