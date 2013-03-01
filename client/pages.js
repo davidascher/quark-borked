@@ -66,7 +66,7 @@ Template.newpage.events({
     Paras.insert({
       index: 0,
       'page': newpageId,
-      'content': ["This is an empty page. Very sad."]
+      'content': ["This is an default page. Very sad.  Make it personal?"]
     })
     var index = Paras.find({page: pageId}).count() + 1;
     Paras.insert({
