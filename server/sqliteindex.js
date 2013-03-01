@@ -21,7 +21,7 @@ var onParaChange = {
 	}
 }
 
-Meteor.startup(function () {
+function setupSqlite() {
   Fiber(function() { 
   	db = new sqlite3.Database('paragraphs.sqlite3', function() {
 		console.log("DB = ", db);
@@ -31,5 +31,9 @@ Meteor.startup(function () {
 		});
 	});
   }).run();
+}
+
+Meteor.startup(function () {
+	setupSqlite();
 });
 
