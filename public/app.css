@@ -21,7 +21,7 @@ div.para {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: .2em 1em;
-	margin: 1px;
+	margin-bottom: 1em;
 }
 
 .searchcard > h3 {
