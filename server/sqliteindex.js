@@ -29,6 +29,7 @@ Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
   	var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
+  	Meteor._debug("arg =", arg);
   	rows = Future.wrap(db.run)(arg);
 	return rows;
 
