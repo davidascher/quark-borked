@@ -15,10 +15,12 @@ var onParaChange = {
 	},
 	changed: function(id, fields) {
 		Meteor._debug("changed", id, fields);
-		db.run("INSERT OR REPLACE INTO paragraphs VALUES ($key, $data)", {
-			$key: id,
-			$data: fields['content'][0]
-		})
+		if (fields['content']) { // some updates are just index tweaks for example
+			db.run("INSERT OR REPLACE INTO paragraphs VALUES ($key, $data)", {
+				$key: id,
+				$data: fields['content'][0]
+			})
+		}
 	},
 	removed: function(id) {
 		Meteor._debug("removed", id);
