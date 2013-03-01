@@ -141,7 +141,10 @@ Template.page.rendered = function() {
 
 Template.page.currentPage = function () {
   id = Session.get("page_name");
-  if (! id) return;
+  if (! id) {
+    console.log('no id set yet');
+    return;
+  }
   console.log("id", id, "page", Pages.findOne(id));
   var page = Pages.findOne(id);
   if (!page) return;
