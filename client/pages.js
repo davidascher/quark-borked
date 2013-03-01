@@ -13,7 +13,6 @@ var showdown;
 //   console.log("calling $ with", x)
 //   return jQuery(x);
 // }
-
 Template.newpara.events({
   'click': function(evt) {
     var pageName = Session.get("pageId");
@@ -140,6 +139,9 @@ Template.heart.events({
     Pages.update(page._id, {$set: {starred: !page.starred}})
   }
 })
+
+Template.page.preserve(['.card']);
+
 
 Template.page.rendered = function() {
   $("#sortable").sortable({ handle: ".drag-handle", 

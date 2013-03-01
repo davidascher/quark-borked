@@ -11,9 +11,7 @@
   <div class="container-fluid main">
     <div class="row-fluid">
       <div class="span5">
-        <div class="card">
           {{> page}}
-        </div>
       </div>
       <div class="span7">
         <div class="row-fluid">
@@ -101,18 +99,20 @@
 </template>
 
 <template name="page">
-  <h3 class="page-name">{{>editablepagetitle currentPage}} {{>heart}}</h3>
-  <div id="pages">
-    <div id="sortable">
-      {{#each paras}}
-        {{> para}}
-      {{/each}}
-    </div>
-    <div class="buttonbar">
-      {{>newpara}}
-      {{>newpage}}
-      {{>newlink}}
-      {{>newothers}}
+  <div class="card">
+    <h3 class="page-name">{{>editablepagetitle currentPage}} {{>heart}}</h3>
+    <div id="pages">
+      <div id="sortable">
+        {{#each paras}}
+          {{> para}}
+        {{/each}}
+      </div>
+      <div class="buttonbar">
+        {{>newpara}}
+        {{>newpage}}
+        {{>newlink}}
+        {{>newothers}}
+      </div>
     </div>
   </div>
 </template>
