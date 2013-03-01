@@ -332,10 +332,7 @@ var PagesRouter = Backbone.Router.extend({
   index: function() {
     console.log("in PagesRouter:index");
     id = "Welcome"; // special cased in bootstrap code pageNameToId("Welcome");
-    if (id) {
-      console.log("id", id, "page", Pages.findOne(id));
-      Session.set("page_name", pageNameToId("Welcome"));
-    }
+    Session.set("page_name", id);
   },
   main: function (page_name) {
     console.log("in PagesRouter:main", page_name);
