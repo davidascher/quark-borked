@@ -28,7 +28,7 @@ Meteor.startup(function () {
 
     for (var i = 0; i < data.length; i++) {
       var timestamp = (new Date()).getTime();
-      var list_id = Pages.insert({id: data[i].id, name: data[i].name, mtime: timestamp});
+      var list_id = Pages.insert({_id: data[i].id, name: data[i].name, mtime: timestamp});
       for (var j = 0; j < data[i].contents.length; j++) {
         Paras.insert({index: j, page: list_id, content: data[i].contents[j]})
       }
