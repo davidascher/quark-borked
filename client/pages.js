@@ -345,6 +345,7 @@ Router = new PagesRouter;
 function updateParagraphOrder(event, ui) {
   // build a new array items in the right order, and push them
   // stolen from https://github.com/sdossick/sortable-meteor
+  console.log("updateParagraphOrder", event.target)
   var rows = $(event.target).find('.para');
   _.each(rows, function(element,index,list) {
     var id = $(element).data('id');
