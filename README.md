@@ -20,8 +20,8 @@ Todos:
 
 - friday: focus on UX
   - Pages should have a type: page, link, image, json, code?
-  - fix columnar layout
   - think about scrolling
+  - css transitions to indicate navigation between cards (see https://github.com/tmeasday/meteor-transitioner but with gecko bug)
   - search endpoint returns page IDs
   - going from search results to curated list
     - curating search results -- just throw away irrelevant cards?
@@ -66,4 +66,3 @@ TESTS
  - hearting/unhearting
  - editing page title
    - following resulting redirects
- 
