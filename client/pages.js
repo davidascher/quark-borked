@@ -47,10 +47,10 @@ Template.newpage.events({
     var pageId = Session.get("pageId");
     var names = ['new page', 'another new page', 'a random new page'];
     var newpage = null;
-    var newpagename = '';
     var i = 0;
+    var newpagename = names[i];
     while (!newpage) {
-      newpage = Pages.findOne({name: names[i]});
+      newpage = Pages.findOne({name: newpagename});
       if (newpage) i++;
       if (i > names.length) {
         newpagename = 'new page ' + i.toString()
