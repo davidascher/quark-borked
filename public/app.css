@@ -27,8 +27,12 @@ div.para {
 	margin: 1px;
 }
 
+.trash {
+	display: inline;
+}
 .dropzone {
-   box-shadow:         inset 0 0 0px #000000;	
+	border-radius: 3px;
+	box-shadow:         inset 0 0 0px #000000;	
 }
 
 .dropzone.activated {
