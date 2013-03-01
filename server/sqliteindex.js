@@ -18,8 +18,7 @@ Meteor.methods({
 	    	Meteor._debug('got err:', err);
     	}
     	Meteor._debug('got rows:', rows);
-    	fut.ret('foo');
-    	// fut.ret(rows);
+    	fut.ret(rows);
     })
     // Wait for async to finish before returning
     // the result
