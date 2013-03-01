@@ -59,7 +59,7 @@ Template.newpage.events({
         newpagename = names[i];
       }
       console.log("newpage is ", newpage, "looping?");
-      if (!newpage) break;
+      if (newpage == null) break;
     }
     var timestamp = (new Date()).getTime();
     var newpageId = Pages.insert({name: newpagename, mtime: timestamp});
