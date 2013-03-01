@@ -9,10 +9,10 @@ var Paras = new Meteor.Collection("paras");
 var Redirects = new Meteor.Collection("redirects");
 var showdown;
 
-function $(x) {
-  console.log("calling $ with", x)
-  return jQuery(x);
-}
+// function $(x) {
+//   console.log("calling $ with", x)
+//   return jQuery(x);
+// }
 
 Template.newpara.events({
   'click': function(evt) {
