@@ -102,7 +102,7 @@ var endPagetitleEditing = function(evt, tmpl) {
   Pages.update(page._id, {$set: {name: newpagename}})
   Session.set("editand", null);
   // register a redirect serverside
-  console.log("regisering a redirect")
+  console.log("regisering a redirect", oldpagename, page._id);
   Redirects.insert({old_name: oldpagename, original_id: page._id})
 }
 
