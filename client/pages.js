@@ -364,7 +364,9 @@ Meteor.startup(function () {
 Meteor.subscribe('pages', function () {
   if (!Session.get('page_name')) {
     var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
-    if (page)
+    if (page) {
+      console.log("Choosing a page:", page);
       Router.setPage(page.name);
+    }
   }
 });
