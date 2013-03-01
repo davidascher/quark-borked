@@ -10,29 +10,49 @@
 <div id="root">
   <div class="container-fluid main">
     <div class="row-fluid">
-      <div class="span2">
+<!--       <div class="span2">
         <div class="well sidebar-nav">
           <ul class="nav nav-list">
             {{>heartedpages}}
             {{>recentpages}}
-        </div><!--/.well -->
-      </div><!--/span-->
-      <div class="span5">
+        </div>
+      </div>
+ -->
+      <div class="span6">
         <div class="card">
           {{> page}}
         </div>
       </div>
-      <div class="span4">
+      <div class="span6">
         <div class="searchfield">
           <form class="form-search">
             <input type="text" class="input-medium search-query">
             <button type="submit" class="btn">Search</button>
           </form>
         </div>
+        <div class="searchresults">
+          <div class="span3 column1">
+            {{>samplesearchresult}}
+            {{>samplesearchresult}}
+            {{>samplesearchresult}}
+          </div>
+          <div class="span3 column1">
+            {{>samplesearchresult}}
+            {{>samplesearchresult}}
+            {{>samplesearchresult}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+</template>
+
+<template name="samplesearchresult">
+  <div class="searchcard">
+    <h3>lorem ipsum</h3>
+    <p>loco dolores y amor</p>
+  </div>
 </template>
 
 <template name="redirected">
