@@ -363,6 +363,18 @@ function updateParagraphOrder(event, ui) {
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
   $(".searchresults .searchcard").draggable({stack: ".searchresults .searchcard"});
+  $( "#trash" ).droppable({
+    accept: ".searchcard",
+    activeClass: "ui-state-hover",
+    drop: function( event, ui ) {
+    $( this )
+    .addClass( "ui-state-highlight" )
+    .find( "p" )
+    .html( "Dropped!" );
+    }
+  });
+
+
 });
 
 Meteor.subscribe('pages', function () {
