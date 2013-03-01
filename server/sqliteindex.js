@@ -1,5 +1,6 @@
 // This keeps user-authored stuff indexed in sqlite
 
+var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
 var db;
 
