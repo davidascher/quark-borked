@@ -366,7 +366,7 @@ Meteor.startup(function () {
   $( "#trash" ).droppable({
     accept: ".searchcard",
     hoverClass: "activated",
-    activeClass: "activated",
+    activeClass: "ready",
     drop: function(event, ui) {
       // $(this)
       // .addClass("ui-state-highlight")
