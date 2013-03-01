@@ -27,6 +27,10 @@ div.para {
 	margin: 1px;
 }
 
+.link {
+	background-color: orange;
+}
+
 .searchcard:hover {
 	cursor: pointer;
 }
