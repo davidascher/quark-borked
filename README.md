@@ -17,11 +17,11 @@ Todos:
 	 	x get bootstrap.js to read from fs to import recipes into wiki
 
 	 - get bookmark's contents in the mix
-	  - addon to look at history, extract recent urls
-	  - post handler node.js -> mongo
+	  x addon to look at history, extract recent urls
+	  x post handler node.js -> mongo
 	 	- get bookmark queue in mongo
 	 	- spider bookmarks in most recent first order
-	 	- use justext to extract content, store that in sqlite & mongo
+	 	x use justext to extract content, store that in sqlite & mongo
    	  x figure out which subprocess node module to use to outsource jobs to python/justext.
    - think about search interactions, curating search results
 
