@@ -2,6 +2,7 @@
 
 var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
+var Future = require('future');
 var db;
 
 // var searchForATerm = Fiber(function(rows) {
