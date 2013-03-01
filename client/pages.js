@@ -55,7 +55,7 @@ Template.newpage.events({
       console.log("looked for page called", newpagename, "found", newpage);
       if (newpage) i++;
       if (i >= names.length) {
-        newpagename = 'new page ' + i.toString()
+        newpagename = 'new page ' + (i-2).toString()
       } else {
         newpagename = names[i];
       }
