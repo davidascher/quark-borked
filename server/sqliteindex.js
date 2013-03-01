@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
 var db;
 
-var searchForATerm = Fiber(function(term) {
+var searchForATerm = Fiber(function(rows) {
 	Meteor._debug("starting fiber, db=", db);
   	// SQL injection prevention code goes here. =()
 	Meteor._debug("got rows from FTS:", rows);
@@ -18,7 +18,7 @@ Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
   	db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", function(err, rows) {
-  		return searchForATerm.run(term);
+  		return searchForATerm.run(rows);
   	});
 
     // 	Fiber.yield(rows);
