@@ -22,6 +22,7 @@ Todos:
 	 	- get bookmark queue in mongo
 	 	- spider bookmarks in most recent first order
 	 	- use justext to extract content, store that in sqlite & mongo
+	 		- figure out which subprocess node module to use to outsource jobs to python/justext.
 	 - think about search interactions, curating search results
 
 	 - mock up social search & central search
