@@ -325,8 +325,10 @@ var PagesRouter = Backbone.Router.extend({
     "": "index"
   },
   index: function() {
-    console.log(pageNameToId("Welcome"));
-    Session.set("page_name", pageNameToId("Welcome"));
+    id = pageNameToId("Welcome");
+    if (id) {
+      Session.set("page_name", pageNameToId("Welcome"));
+    }
   },
   main: function (page_name) {
     // debugger;
