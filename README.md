@@ -12,17 +12,21 @@ Microfeatures
 Todos:
 
  - focus on search
-	 - import a real corpus (my recipes?)
-	 	- find markdown->html clientside renderer (coauthor code?)
-	 	- get bootstrap.js to read from fs to import recipes into wiki
+	 x import a real corpus (my recipes?)
+	 	x find markdown->html clientside renderer (coauthor code?)
+	 	x get bootstrap.js to read from fs to import recipes into wiki
 
 	 - get bookmark's contents in the mix
+	  - addon to look at history, extract recent urls
+	  - post handler node.js -> mongo
 	 	- get bookmark queue in mongo
 	 	- spider bookmarks in most recent first order
-	 	- use readability service to extract content, store that in mongo
+	 	- use justext to extract content, store that in sqlite & mongo
 	 - think about search interactions, curating search results
 
 	 - mock up social search & central search
+
+- consider looking for a large github hosted markdown content repo for scale testing
 
   - make personal:
 	  - when not logged in, can't edit?
