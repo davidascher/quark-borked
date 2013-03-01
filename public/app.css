@@ -28,7 +28,7 @@ div.para {
 }
 
 .trash {
-	display: inline;
+	display: inline-block;
 }
 .dropzone {
 	border-radius: 3px;
