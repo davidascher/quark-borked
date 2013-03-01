@@ -61,3 +61,7 @@ Open questions
 
 Think about cards - current card, searched cards, past cards?
 think harder about federation - maybe setup micro server farm process per topic?
+
+TESTS
+ - hearting/unhearting
+ 
