@@ -365,6 +365,7 @@ Meteor.startup(function () {
   $(".searchresults .searchcard").draggable({stack: ".searchresults .searchcard"});
   $( "#trash" ).droppable({
     accept: ".searchcard",
+    hoverClass: "activated",
     activeClass: "activated",
     drop: function(event, ui) {
       // $(this)
