@@ -44,7 +44,7 @@ Template.newpage.events({
   'click': function(evt) {
     // this creates a paragraph containing a link to a page that doesn't exist.
     // and inserts it at the end of the current page.
-    var pageName = Session.get("pageId");
+    var pageId = Session.get("pageId");
     var names = ['new page', 'another new page', 'a random new page'];
     var newpage = null;
     var newpagename = '';
@@ -60,11 +60,11 @@ Template.newpage.events({
       if (!newpage) break;
     }
     var timestamp = (new Date()).getTime();
-    var newpageId = Pages.insert({name: pageName, mtime: timestamp});
-    var index = Paras.find({page: pageName}).count() + 1;
+    var newpageId = Pages.insert({name: newpagename, mtime: timestamp});
+    var index = Paras.find({page: pageId}).count() + 1;
     Paras.insert({
       index: index,
-      'page': newpageId,
+      'page': pageId,
       'content': ["Link to a [[" + newpagename + "]]"]
     })
   }
