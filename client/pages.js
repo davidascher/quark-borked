@@ -143,7 +143,7 @@ Template.page.currentPage = function () {
   id = Session.get("page_name");
   if (! id) return;
   console.log("id", id, "page", Pages.findOne(id));
-  var page = Pages.findOne({_id: id});
+  var page = Pages.findOne(id);
   if (!page) return;
   var pageName = page.name;
   if (!pageName) return '';
