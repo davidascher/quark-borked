@@ -354,7 +354,7 @@ Meteor.startup(function () {
 // Select a list once data has arrived.
 Meteor.subscribe('pages', function () {
   if (!Session.get('page_name')) {
-    var page = Pages.findOne({}, {sort: {name: 1}});
+    var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
     if (page)
       Router.setPage(page.name);
   }
