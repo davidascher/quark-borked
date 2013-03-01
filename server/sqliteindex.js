@@ -8,22 +8,16 @@ var db;
 
 Meteor.methods({
   search: function (term) {
+    // Set up a future
+    var fut = new Future();
 
-  	Meteor.methods({
-  	  asyncJob: function(message) {
-
-  	    // Set up a future
-  	    var fut = new Future();
-
-  	    var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
-  	    db.run(arg, function(err, rows) {
-  	    	fut.ret(rows);
-  	    })
-  	    // Wait for async to finish before returning
-  	    // the result
-  	    return fut.wait();
-  	  }
-  	});
+    var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
+    db.run(arg, function(err, rows) {
+    	fut.ret(rows);
+    })
+    // Wait for async to finish before returning
+    // the result
+    return fut.wait();
   }
 });
 
