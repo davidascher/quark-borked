@@ -8,6 +8,7 @@ Meteor.startup(function () {
   if (Pages.find().count() === 0) {
     var data = [
       {name: "Welcome",
+       id:"Welcome",
        contents: [
          ["This is a first paragraph"],
          ["This is a second paragraph linking to [[Other page]]"],
@@ -15,6 +16,7 @@ Meteor.startup(function () {
        ]
       },
       {name: "Other page",
+       id:"whatever",
        contents: [
          ["This is a first paragraph"],
          ["This is a second paragraph paragraph"],
@@ -26,7 +28,7 @@ Meteor.startup(function () {
 
     for (var i = 0; i < data.length; i++) {
       var timestamp = (new Date()).getTime();
-      var list_id = Pages.insert({name: data[i].name, mtime: timestamp});
+      var list_id = Pages.insert({id: data[i].id, name: data[i].name, mtime: timestamp});
       for (var j = 0; j < data[i].contents.length; j++) {
         Paras.insert({index: j, page: list_id, content: data[i].contents[j]})
       }
