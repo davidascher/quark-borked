@@ -24,7 +24,8 @@ div.para {
 	margin: 1px;
 }
 
-.searchard h3 {
+.searchard > h3 {
+	color: red;
 	font-size: x-small;
 }
 
