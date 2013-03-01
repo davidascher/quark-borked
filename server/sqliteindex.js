@@ -30,7 +30,7 @@ var db;
 Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
-  	rows = Future.wrap(db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'")).wait();
+  	rows = Future.wrap(function() {db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'")}).wait();
 	return rows;
 
     // 	Fiber.yield(rows);
