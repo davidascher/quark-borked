@@ -15,6 +15,23 @@ div.para {
 	/*background: orange;*/
 }
 
+
+.searchcard {
+	max-width: 10em;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: .2em 1em;
+	margin: 1px;
+}
+
+.searchard h3 {
+	font-size: smaller;
+}
+
+.searchard p {
+	color: red;
+}
+
 .paragraph-placeholder {
 	min-height: 1.2em; 
 	line-height: 1.2em;
