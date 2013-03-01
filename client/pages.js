@@ -137,6 +137,7 @@ Template.heart.events({
 })
 
 Template.page.rendered = function() {
+  return;
   console.log("#sortable", $("#sortable"));
   $("#sortable").sortable({ handle: ".drag-handle", 
     update: updateParagraphOrder,
@@ -282,8 +283,6 @@ Template.page.events({
   },
 
   'blur': function(evt) {
-    return;
-    console.log("blur", evt.target)
     var para = $(evt.target).parent();
     var textarea = para.find("textarea").val();
     endParagraphEditing(this._id, this.index, textarea);
