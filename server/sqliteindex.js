@@ -30,6 +30,7 @@ Meteor.methods({
   	Meteor._debug("doing a search for ", term);
   	var arg = "SELECT key FROM paragraphs WHERE data MATCH '" + term + "'";
   	Meteor._debug("arg =", arg);
+  	Meteor._debug(Future.wrap(db.run));
   	rows = Future.wrap(db.run)(arg);
   	Meteor._debug("rows", rows);
 	return rows;
