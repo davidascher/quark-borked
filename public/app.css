@@ -124,7 +124,7 @@ span.pagetitle:hover {
 }
 
 h3.page-name {
-	/*margin-left: 20px;*/
+	margin-left: -10px;
 }
 
 textarea.editable {
