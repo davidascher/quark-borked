@@ -31,6 +31,10 @@ div.para {
 	cursor: pointer;
 }
 
+.activated .searchcard {
+	cursor: move;
+}
+
 .trash {
 	display: inline-block;
 }
