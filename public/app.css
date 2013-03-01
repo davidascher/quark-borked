@@ -23,6 +23,7 @@ div.para {
 }
 
 .searchcard {
+	background: white;
 	/*max-width: 20em;*/
 	border: 1px solid #ccc;
 	border-radius: 3px;
