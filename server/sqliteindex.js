@@ -1,12 +1,8 @@
 // This keeps user-authored stuff indexed in sqlite
 
 var allparas = Paras.find();
+var db;
 
-var db = new sqlite3.Database('webpages.sqlite3', createTable);
-function createTable() {
-    console.log("createTable webpages");
-    db.run("CREATE VIRTUAL TABLE webpages USING fts4(url, data);", mongoOpen)
-}
 
 db.run("INSERT INTO webpages VALUES ($url, $data)", {
 	$url: url,
@@ -14,12 +10,13 @@ db.run("INSERT INTO webpages VALUES ($url, $data)", {
 })
 
 
-function closeDb() {
-    console.log("closeDb");
-    db.close();
+Meteor.startup(function () {
+	db = new sqlite3.Database('webpages.sqlite3', createTable);
+	function createTable() {
+	    console.log("createTable webpages");
+	    db.run("CREATE VIRTUAL TABLE IF NOT EXISTS webpages USING fts4(key, data);", mongoOpen)
+	}
 }
-
-
 
 var onParaChange = {
 	added: function(id, fields) {
