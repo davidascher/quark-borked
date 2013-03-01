@@ -4,25 +4,22 @@ var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
 var db;
 
-function searchForATerm() {
-	var fiber = Fiber(function(term) {
-		Meteor._debug("starting fiber, db=", db);
-	  	// SQL injection prevention code goes here. =()
-		db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", function(err, rows) {
-	    	Meteor._debug("got rows from FTS:", rows);
-	    	if (rows)
-				Fiber.yield(rows);
-			else 
-				Fiber.yield('Nope.');
-		});
+var searchForATerm = Fiber(function(term) {
+	Meteor._debug("starting fiber, db=", db);
+  	// SQL injection prevention code goes here. =()
+	db.run("SELECT key FROM paragraphs WHERE data MATCH '" + term + "'", function(err, rows) {
+    	Meteor._debug("got rows from FTS:", rows);
+    	if (rows)
+			Fiber.yield(rows);
+		else 
+			Fiber.yield('Nope.');
 	});
-	return fiber.run.bind(fiber);
-}
+});
 
 Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
-  	return searchForATerm(term)();
+  	return searchForATerm.run(term)();
     // 	Fiber.yield(rows);
     // });
     // if (you want to throw an error)
