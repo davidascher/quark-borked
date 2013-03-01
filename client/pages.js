@@ -147,6 +147,7 @@ Template.page.currentPage = function () {
   if (!page) return;
   var pageName = page.name;
   if (!pageName) return '';
+  console.log("WE HAVE A PAGE AND ITS NAME IS ", pageName);
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
