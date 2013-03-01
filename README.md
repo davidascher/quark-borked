@@ -20,9 +20,13 @@ Todos:
 
 - friday: focus on UX
   - Pages should have a type: page, link, image, json, code?
+  - fix columnar layout
+  - think about scrolling
   - search endpoint returns page IDs
   - going from search results to curated list
+    - curating search results -- just throw away irrelevant cards?
     - drag from search panes onto current pane.
+    - make a curated search a first-class page (live, or frozen?)
     - merge links with paragraphs?
 
  - focus on search
@@ -53,6 +57,7 @@ Technical debt:
 Open questions
 	- show redirects?
 	- tagging: simple or faceted?
+	- include tweets, or just tweeted links?  if tweets, only mine and the ones i reply to?  replies to me?
 
 Think about cards - current card, searched cards, past cards?
 think harder about federation - maybe setup micro server farm process per topic?
