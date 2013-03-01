@@ -101,7 +101,7 @@ var endPagetitleEditing = function(evt, tmpl) {
   Pages.update(page._id, {$set: {name: newpagename}})
   Session.set("editand", null);
   // register a redirect serverside
-  Redirects.insert({old_name: oldpagename, new_name: newpagename})
+  Redirects.insert({old_name: oldpagename, id: page._id})
 }
 
 Template.editablepagetitle.events({
@@ -156,18 +156,7 @@ Template.page.currentPage = function () {
   if (!page) return;
   var pageName = page.name;
   if (!pageName) return '';
-  console.log("WE HAVE A PAGE AND ITS NAME IS ", pageName);
-  var redirect = Redirects.findOne({old_name: pageName});
-  if (redirect) {
-    // this is an actual client-side redirect, kinda cute!
-    Session.set("pageId", redirect.new_name);
-    // Session.set("redirected_from", pageName);
-    return redirect.new_name;
-  } else {
-    // Session.set("redirected_from", null);
-    return pageName.trim();
-  }
-  return '';
+  return pageName;
 };
 
 Template.page.paras = function() {
@@ -205,6 +194,20 @@ function handleInternalLinkClick(evt) {
   evt.stopPropagation();
   evt.preventDefault();
   var target = evt.target.getAttribute('data');
+  var pageName = unescape(target);
+
+  var redirect = Redirects.findOne({old_name: pageName});
+  if (redirect) {
+    // this is an actual client-side redirect, kinda cute!
+    Session.set("pageId", redirect.new_name);
+    // Session.set("redirected_from", pageName);
+    return redirect.new_name;
+  } else {
+    // Session.set("redirected_from", null);
+    return pageName.trim();
+  }
+  return '';
+
   Session.set("pageId", pageNameToId(unescape(target)));
 };
 
