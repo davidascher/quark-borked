@@ -8,7 +8,6 @@ var db;
 
 Meteor.methods({
   search: function (term) {
-  	return 'NEVER!';
     // Set up a future
     var fut = new Future();
 
@@ -24,8 +23,7 @@ Meteor.methods({
     })
     // Wait for async to finish before returning
     // the result
-    var retval= fut.wait();
-    return 'bar';
+    return fut.wait();
   }
 });
 
