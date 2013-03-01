@@ -17,6 +17,7 @@ function searchForATerm() {
 
 Meteor.methods({
   search: function (term) {
+  	Meteor._debug("doing a search for ", term);
   	return searchForATerm(term);
     // 	Fiber.yield(rows);
     // });
@@ -33,14 +34,14 @@ Meteor.methods({
 
 var onParaChange = {
 	added: function(id, fields) {
-		Meteor._debug("added", id, fields);
+		// Meteor._debug("added", id, fields);
 		db.run("INSERT INTO paragraphs VALUES ($key, $data)", {
 			$key: id,
 			$data: fields['content'][0]
 		})
 	},
 	changed: function(id, fields) {
-		Meteor._debug("changed", id, fields);
+		// Meteor._debug("changed", id, fields);
 		if (fields['content']) { // some updates are just index tweaks for example
 			db.run("INSERT OR REPLACE INTO paragraphs VALUES ($key, $data)", {
 				$key: id,
