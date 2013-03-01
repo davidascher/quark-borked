@@ -199,7 +199,7 @@ function handleInternalLinkClick(evt) {
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
-    Session.set("pageId", redirect.new_name);
+    Session.set("pageId", redirect.id);
     // Session.set("redirected_from", pageName);
     return redirect.new_name;
   } else {
