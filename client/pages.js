@@ -101,7 +101,7 @@ var endPagetitleEditing = function(evt, tmpl) {
   Pages.update(page._id, {$set: {name: newpagename}})
   Session.set("editand", null);
   // register a redirect serverside
-  Redirects.insert({old_name: oldpagename, new_id: page._id})
+  Redirects.insert({old_name: oldpagename, original_id: page._id})
 }
 
 Template.editablepagetitle.events({
@@ -199,7 +199,7 @@ function handleInternalLinkClick(evt) {
   var redirect = Redirects.findOne({old_name: pageName});
   if (redirect) {
     // this is an actual client-side redirect, kinda cute!
-    Session.set("pageId", redirect.id);
+    Session.set("pageId", redirect.original_id);
   } else {
     Session.set("pageId", pageNameToId(unescape(target)));
   }
