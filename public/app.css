@@ -24,12 +24,11 @@ div.para {
 	margin: 1px;
 }
 
-.searchard > h3 {
-	color: red;
+.searchcard > h3 {
 	font-size: x-small;
 }
 
-.searchard p {
+.searchcard p {
 	color: red;
 }
 
