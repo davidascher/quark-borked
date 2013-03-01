@@ -5,26 +5,6 @@ var allparas = Paras.find();
 var Future = require('fibers/future'), wait = Future.wait;
 var db;
 
-// var searchForATerm = Fiber(function(rows) {
-// 	Meteor._debug("starting fiber, db=", db);
-//   	// SQL injection prevention code goes here. =()
-// 	Meteor._debug("got rows from FTS:", rows);
-// 	if (rows)
-// 		Fiber.yield(rows);
-// 	else 
-// 		Fiber.yield('Nope.');
-// });
-
-
-//    someAsyncFunction(arg, function (err, ret) {
-//      doSomethingWith(ret);
-//    });
-
-// you write
-
-//   var ret = Future.wrap(someAsyncFunction)(arg);
-//   doSomethingWith(ret);
-
 Meteor.methods({
   search: function (term) {
   	Meteor._debug("doing a search for ", term);
