@@ -46,11 +46,12 @@ Template.newpage.events({
     // and inserts it at the end of the current page.
     var pageId = Session.get("pageId");
     var names = ['new page', 'another new page', 'a random new page'];
-    var newpage = null;
+    var newpage = true;
     var i = 0;
     var newpagename = names[i];
-    while (newpage == null) {
+    while (newpage != null) {
       newpage = Pages.findOne({name: newpagename});
+      if (!newpage) break;
       console.log("looked for page called", newpagename, "found", newpage);
       if (newpage) i++;
       if (i > names.length) {
@@ -58,8 +59,8 @@ Template.newpage.events({
       } else {
         newpagename = names[i];
       }
+      newpage = Pages.findOne({name: newpagename});
       console.log("newpage is ", newpage, "looping?");
-      if (newpage == null) break;
     }
     var timestamp = (new Date()).getTime();
     var newpageId = Pages.insert({name: newpagename, mtime: timestamp});
