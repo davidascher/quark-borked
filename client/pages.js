@@ -147,13 +147,11 @@ Template.page.rendered = function() {
 
 Template.page.currentPage = function () {
   id = Session.get("pageId");
-  if (! id) {
-    return;
-  }
+  if (!id) return;
   var page = Pages.findOne(id);
   if (!page) return;
   var pageName = page.name;
-  if (!pageName) return '';
+  if (!pageName) return;
   return pageName.trim();
 };
 
