@@ -8,6 +8,7 @@ var db;
 
 Meteor.methods({
   search: function (term) {
+  	return 'NEVER!';
     // Set up a future
     var fut = new Future();
 
