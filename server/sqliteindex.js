@@ -18,11 +18,13 @@ Meteor.methods({
 	    	Meteor._debug('got err:', err);
     	}
     	Meteor._debug('got rows:', rows);
-    	fut.ret(rows);
+    	fut.ret('foo');
+    	// fut.ret(rows);
     })
     // Wait for async to finish before returning
     // the result
-    return fut.wait();
+    var retval= fut.wait();
+    return 'bar';
   }
 });
 
