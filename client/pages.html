@@ -32,9 +32,9 @@
             {{>samplesearchresult}}
           </div>
           <div class="span6">
+            {{>samplesearchresult link}}
             {{>samplesearchresult}}
-            {{>samplesearchresult}}
-            {{>samplesearchresult}}
+            {{>samplesearchresult link}}
           </div>
         </div>
         </div>
@@ -44,7 +44,7 @@
 </template>
 
 <template name="samplesearchresult">
-  <div class="searchcard draggable">
+  <div class="searchcard draggable {{this}}">
     <h3>lorem ipsum</h3>
     <p>loco dolores y amor</p>
   </div>
