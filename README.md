@@ -64,4 +64,6 @@ think harder about federation - maybe setup micro server farm process per topic?
 
 TESTS
  - hearting/unhearting
+ - editing page title
+   - following resulting redirects
  
