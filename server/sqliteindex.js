@@ -4,7 +4,7 @@ var sqlite3 = require('sqlite3');
 var allparas = Paras.find();
 var db;
 
-function searchForATerm() {
+function searchForATerm = {
 	var fiber = Fiber(function() {
 		Meteor._debug("starting fiber, db=", db);
 	  	// SQL injection prevention code goes here. =()
