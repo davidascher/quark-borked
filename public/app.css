@@ -107,6 +107,10 @@ span.pagetitle:hover {
 	margin-right: 1em;
 }
 
+input[type="text"], input[type="email"], input[type="password"] {
+	color: rgb(14, 32, 59);
+}
+
 #sortable { list-style-type: none; margin: 0; padding: 0; }
 
 /*#sortable div { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; }*/
