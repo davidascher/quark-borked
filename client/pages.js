@@ -338,6 +338,9 @@ var PagesRouter = Backbone.Router.extend({
     console.log("in PagesRouter:main", page_name);
     Session.set("page_name", pageNameToId(unescape(page_name)));
   },
+  setPage: function (list_id) {
+    this.navigate(list_id, true);
+  }
 });
 
 Router = new PagesRouter;
@@ -354,6 +357,14 @@ function updateParagraphOrder(event, ui) {
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});
+});
+
+Meteor.subscribe('pages', function () {
+  if (!Session.get('page_name')) {
+    var page = Pages.findOne({}, {sort: {name: 1}});
+    if (page)
+      Router.setList(page._id);
+  }
 });
 
 // Subscribe to 'pages' collection on startup.
