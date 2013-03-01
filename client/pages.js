@@ -94,14 +94,11 @@ var endPagetitleEditing = function(evt, tmpl) {
   evt.stopPropagation();
   evt.preventDefault();
   Session.set("editing_title", null);
-  var oldpagename = Session.get('pageId');
-  var newpagename = tmpl.find("#title-input").value;
-  var page = Pages.findOne({name: oldpagename});
+  var pageId = Session.get('pageId')
+  var page = Pages.findOne(pageId);
   if (!page) return;
-  var paras = Paras.find();
+  var newpagename = tmpl.find("#title-input").value;
   Pages.update(page._id, {$set: {name: newpagename}})
-  updates = Paras.update({'page': oldpagename}, {$set: {page: newpagename}}, {multi: true});
-  Session.set("pageId", newpagename);
   Session.set("editand", null);
   // register a redirect serverside
   Redirects.insert({old_name: oldpagename, new_name: newpagename})
