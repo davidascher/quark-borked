@@ -58,6 +58,7 @@ Template.newpage.events({
       } else {
         newpagename = names[i];
       }
+      console.log("newpage is ", newpage, "looping?");
       if (!newpage) break;
     }
     var timestamp = (new Date()).getTime();
