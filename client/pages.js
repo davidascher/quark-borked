@@ -49,7 +49,7 @@ Template.newpage.events({
     var newpage = null;
     var i = 0;
     var newpagename = names[i];
-    while (!newpage) {
+    while (newpage == null) {
       newpage = Pages.findOne({name: newpagename});
       console.log("looked for page called", newpagename, "found", newpage);
       if (newpage) i++;
