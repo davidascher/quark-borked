@@ -137,8 +137,6 @@ Template.heart.events({
 })
 
 Template.page.rendered = function() {
-  return;
-  console.log("#sortable", $("#sortable"));
   $("#sortable").sortable({ handle: ".drag-handle", 
     update: updateParagraphOrder,
     placeholder: "paragraph-placeholder"
