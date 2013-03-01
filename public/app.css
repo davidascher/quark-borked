@@ -10,7 +10,7 @@ div.para {
 	display: inline;
 }
 
-.card {
+.card, .searchcard {
 	background: white;
 	/*max-width: 25em;*/
 	border: 1px solid #ccc;
@@ -23,11 +23,6 @@ div.para {
 }
 
 .searchcard {
-	background: white;
-	/*max-width: 20em;*/
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: .2em 1em;
 	margin-bottom: 1em;
 }
 
