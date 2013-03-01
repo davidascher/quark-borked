@@ -144,6 +144,7 @@ Template.page.currentPage = function () {
   if (! id) return;
   console.log('id', id);
   var page = Pages.findOne({_id: id});
+  if (!page) return;
   var pageName = page.name;
   if (!pageName) return '';
   var redirect = Redirects.findOne({old_name: pageName});
