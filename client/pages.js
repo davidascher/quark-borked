@@ -190,7 +190,7 @@ function handleInternalLinkClick(evt) {
   evt.stopPropagation();
   evt.preventDefault();
   var target = evt.target.getAttribute('data');
-  Session.set("page_name", unescape(target));
+  Session.set("page_name", pageNameToId(unescape(target)));
 };
 
 function fixupIndices() {
@@ -309,6 +309,11 @@ Handlebars.registerHelper('linkify', function(content, options) {
   return new Handlebars.SafeString(linkified);
 });
 
+var pageNameToId = function(pageName) {
+  var page = Pages.findOne({'name': pageName});
+  if (page) return page._id;
+  return null;
+}
 
 var PagesRouter = Backbone.Router.extend({
   routes: {
@@ -316,11 +321,11 @@ var PagesRouter = Backbone.Router.extend({
     "": "index"
   },
   index: function() {
-    Session.set("page_name", "Welcome");
+    Session.set("page_name", pageNameToId("Welcome"));
   },
   main: function (page_name) {
     // debugger;
-    Session.set("page_name", unescape(page_name));
+    Session.set("page_name", pageNameToId(unescape(page_name)));
   },
 });
 
