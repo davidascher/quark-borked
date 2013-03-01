@@ -49,9 +49,9 @@ Meteor.startup(function () {
           var contents = fs.readFileSync(filepath, 'utf8');
           var subparas = contents.split(/\n\n+/);
           var timestamp = (new Date()).getTime();
-          Pages.insert({name: page_name, mtime: timestamp});
+          var pageId = Pages.insert({name: page_name, mtime: timestamp});
           for (var j = 0; j < subparas.length; j++) {
-            Paras.insert({index: j, page: page_name, content: [subparas[j]]})
+            Paras.insert({index: j, page: pageId, content: [subparas[j]]})
           }
         }
       }
