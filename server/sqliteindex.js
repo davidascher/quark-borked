@@ -34,11 +34,6 @@ Meteor.methods({
   	rows = Future.wrap(db.run)(arg);
   	Meteor._debug("rows", rows);
 	return rows;
-  },
-
-  bar: function () {
-    // .. do other stuff ..
-    return "baz";
   }
 });
 
