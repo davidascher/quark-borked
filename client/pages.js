@@ -59,6 +59,10 @@ Template.newpage.events({
       }
       if (!newpage) break;
     }
+    if (!newpage) {
+      var timestamp = (new Date()).getTime();
+      var newpage = Pages.insert({name: pageName, mtime: timestamp});
+    } 
     var index = Paras.find({page: pageName}).count() + 1;
     Paras.insert({
       index: index,
