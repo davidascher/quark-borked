@@ -356,20 +356,18 @@ function updateParagraphOrder(event, ui) {
 }
 
 Meteor.startup(function () {
-  // Subscribe to 'pages' collection on startup.
-  // Select a list once data has arrived.
-  Meteor.subscribe('pages', function () {
-    if (!Session.get('page_name')) {
-      console.log("need to find a page");
-      var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
-      if (page) {
-        console.log("Choosing a page:", page);
-        Router.setPage(page.name);
-      }
-    }
-  });
-
   Backbone.history.start({pushState: true});
-  showdown = new Showdown.converter();
 });
 
+// Subscribe to 'pages' collection on startup.
+// Select a list once data has arrived.
+Meteor.subscribe('pages', function () {
+  if (!Session.get('page_name')) {
+    console.log("need to find a page");
+    var page = Pages.findOne({'name': 'Welcome'}, {sort: {name: 1}});
+    if (page) {
+      console.log("Choosing a page:", page);
+      Router.setPage(page.name);
+    }
+  }
+});
