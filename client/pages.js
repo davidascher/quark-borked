@@ -180,13 +180,13 @@ Template.page.itemlist = function() {
 return Items.find({},{sort:{listposition:1}});
 }
 
-function confirmPageExists(pageName) {
+function confirmPageExists(pageId) {
   var timestamp = (new Date()).getTime();
-  page = Pages.findOne({name: pageName});
+  page = Pages.findOne({_id: pageId});
   if (page) {
     Pages.update(page._id,
       {$set: {
-        name: pageName,
+        // name: pageName,
         mtime: timestamp}
       });
     return;
@@ -217,7 +217,7 @@ function fixupIndices() {
 function endParagraphEditing(id, index, contents) {
   // trim leading and trailing whitespace
   var contents = $.trim(contents);
-  var pageName = Session.get("pageId");
+  var pageId = Session.get("pageId");
   // if it's empty, get rid of it.
   if (contents.length == 0) {
     Paras.remove(id);
@@ -229,14 +229,14 @@ function endParagraphEditing(id, index, contents) {
       Paras.remove(id); // remove the old one
       for (var i = 0; i < subparas.length; i++) {
         Paras.insert({
-          page: pageName,
+          page: pageId,
           index: index + (i / numsubparas), 
           content: [subparas[i]]
         });
       }
     } else {
       Paras.update({_id: id}, {
-        page: pageName,
+        page: pageId,
         index: index, 
         content: [contents]
       });
@@ -246,7 +246,7 @@ function endParagraphEditing(id, index, contents) {
   Session.set("editand", null);
   Session.set("editing_para", null);
 
-  confirmPageExists(pageName);
+  confirmPageExists(pageId);
 }
 
 var activateInput = function (input) {
