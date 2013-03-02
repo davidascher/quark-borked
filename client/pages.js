@@ -13,16 +13,18 @@ Template.search.events({
   'click': function(evt) {
     var searchterm = $().find("#search").value;
     Meteor.call("search", searchterm, function(err, data) {
+      Session.set("searchresults", data)
     })
   }
 })
 
 Template.main.searchresults = function() {
-  return [{'name': 'foo', 'beginning': 'lorem ipsum'},
-    {'name': 'foo', 'beginning': 'lorem ipsum'},
-    {'name': 'foo', 'beginning': 'lorem ipsum'},
-    {'name': 'foo', 'beginning': 'lorem ipsum'}
-  ];
+  var ids = Session.get("searchresults", data);
+  var pages = new Meteor.Collection();
+  for (i = 0; i < data.length; i++) {
+    pages.insert(Pages.findOne(data[i]))
+  }
+  return pages;
 }
 
 // Template.searchcard.name {
