@@ -11,7 +11,8 @@ var showdown;
 
 Template.search.events({
   'click': function(evt) {
-    var searchterm = $().find("#search").value;
+    var searchterm = $("#search")[0].value;
+    console.log("searching for", searchterm)
     Meteor.call("search", searchterm, function(err, data) {
       console.log(err, data);
       Session.set("searchresults", data)
