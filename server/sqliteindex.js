@@ -20,7 +20,7 @@ Meteor.methods({
 var onParaChange = {
 	added: function(id, fields) {
 		// Meteor._debug("added", id, fields);
-		db.run("INSERT INTO paragraphs VALUES ($key, $data)", {
+		db.run("INSERT OR REPLACE INTO paragraphs VALUES ($key, $data)", {
 			$key: id,
 			$data: fields['content'][0]
 		})
