@@ -9,7 +9,7 @@ var Paras = new Meteor.Collection("paras");
 var Redirects = new Meteor.Collection("redirects");
 var showdown;
 
-Template.search.submit.events({
+Template.search.events({
   'click': function(evt) {
     var searchterm = $().find("#search").value;
     Meteor.call("search", searchterm, function(err, data) {
