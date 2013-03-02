@@ -19,10 +19,10 @@ Template.search.events({
 })
 
 Template.main.searchresults = function() {
-  var ids = Session.get("searchresults", data);
+  var ids = Session.get("searchresults");
   var pages = new Meteor.Collection();
-  for (i = 0; i < data.length; i++) {
-    pages.insert(Pages.findOne(data[i]))
+  for (i = 0; i < ids.length; i++) {
+    pages.insert(Pages.findOne(ids[i]))
   }
   return pages;
 }
