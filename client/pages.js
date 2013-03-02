@@ -13,7 +13,6 @@ Template.search.submit.events({
   'click': function(evt) {
     var searchterm = $().find("#search").value;
     Meteor.call("search", searchterm, function(err, data) {
-
     })
   }
 })
