@@ -16,10 +16,7 @@
       <div class="span7">
         <div class="row-fluid">
           <div class="searchfield span6">
-            <form class="form-search">
-              <input type="text" class="input-medium search-query">
-              <button type="submit" class="btn">Search</button>
-            </form>
+            {{>search}}
           </div>
         </div>
         <div class="searchresults row-fluid">
@@ -45,6 +42,12 @@
 </div>
 </template>
 
+<template name="search">
+  <form class="form-search">
+    <input id="search" type="text" class="input-medium search-query">
+    <button id="submit" type="submit" class="btn">Search</button>
+  </form>
+</template>
 <template name="samplesearchresult">
   <div class="searchcard draggable {{this}}">
     <h3>lorem ipsum</h3>
