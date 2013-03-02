@@ -23,12 +23,12 @@ Template.main.searchresults = function() {
   {'name': 'foo', 'beginning': 'lorem ipsum'},
   {'name': 'foo', 'beginning': 'lorem ipsum'},
   {'name': 'foo', 'beginning': 'lorem ipsum'}
-  ]
+  ];
 }
 
-Template.searchcard.name {
+// Template.searchcard.name {
 
-}
+// }
 
 Template.newpara.events({
   'click': function(evt) {
