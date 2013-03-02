@@ -9,10 +9,27 @@ var Paras = new Meteor.Collection("paras");
 var Redirects = new Meteor.Collection("redirects");
 var showdown;
 
-// function $(x) {
-//   console.log("calling $ with", x)
-//   return jQuery(x);
-// }
+Template.search.submit.events({
+  'click': function(evt) {
+    var searchterm = $().find("#search").value;
+    Meteor.call("search", searchterm, function(err, data) {
+
+    })
+  }
+})
+
+Template.main.searchresults = function() {
+  return [{'name': 'foo', 'beginning': 'lorem ipsum'},
+  {'name': 'foo', 'beginning': 'lorem ipsum'},
+  {'name': 'foo', 'beginning': 'lorem ipsum'},
+  {'name': 'foo', 'beginning': 'lorem ipsum'}
+  ]
+}
+
+Template.searchcard.name {
+
+}
+
 Template.newpara.events({
   'click': function(evt) {
     var pageName = Session.get("pageId");
