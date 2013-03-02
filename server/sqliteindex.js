@@ -11,7 +11,7 @@ Meteor.methods({
   	Meteor._debug("in search");
     var fut = new Future();
     var arg = "SELECT DISTINCT key FROM paragraphs WHERE data MATCH '" + term + "';";
-    Meteor._debug.log("ARG = ", arg)
+    Meteor._debug("ARG = ", arg);
     db.all(arg, function(err, rows) {
     	fut.ret(rows);
     })
