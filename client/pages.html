@@ -21,14 +21,9 @@
         </div>
         <div class="searchresults row-fluid">
           <div class="span6">
-            {{>samplesearchresult}}
-            {{>samplesearchresult}}
-            {{>samplesearchresult}}
-          </div>
-          <div class="span6">
-            {{>samplesearchresult link}}
-            {{>samplesearchresult}}
-            {{>samplesearchresult link}}
+            {{#foreach searchresults}}
+              {{>searchcard this}}
+            {{/foreach}}  
           </div>
         </div>
         <div class="row-fluid">
@@ -40,6 +35,13 @@
     </div>
   </div>
 </div>
+</template>
+
+<template name="searchcard">
+  <div class="searchcard draggable">
+    <h3>{{name}}</h3>
+    <p>{{beginning}}</p>
+  </div>
 </template>
 
 <template name="search">
