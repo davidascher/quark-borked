@@ -13,6 +13,7 @@ Template.search.events({
   'click': function(evt) {
     var searchterm = $().find("#search").value;
     Meteor.call("search", searchterm, function(err, data) {
+      console.log(err, data);
       Session.set("searchresults", data)
     })
   }
