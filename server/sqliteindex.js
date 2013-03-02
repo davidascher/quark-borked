@@ -9,7 +9,8 @@ var db;
 Meteor.methods({
   search: function (term) {
     var fut = new Future();
-    db.all("SELECT DISTINCT key FROM paragraphs WHERE data MATCH '" + term + "';", function(err, rows) {
+    var arg = "SELECT DISTINCT key FROM paragraphs WHERE data MATCH '" + term + "';";
+    db.all(arg, function(err, rows) {
     	fut.ret(rows);
     })
     return fut.wait();
