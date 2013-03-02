@@ -20,9 +20,9 @@ Template.search.submit.events({
 
 Template.main.searchresults = function() {
   return [{'name': 'foo', 'beginning': 'lorem ipsum'},
-  {'name': 'foo', 'beginning': 'lorem ipsum'},
-  {'name': 'foo', 'beginning': 'lorem ipsum'},
-  {'name': 'foo', 'beginning': 'lorem ipsum'}
+    {'name': 'foo', 'beginning': 'lorem ipsum'},
+    {'name': 'foo', 'beginning': 'lorem ipsum'},
+    {'name': 'foo', 'beginning': 'lorem ipsum'}
   ];
 }
 
